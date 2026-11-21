@@ -23,3 +23,14 @@ See the [prayer companion specification](../../PRAYER_COMPANION_REAL_TIME_SPEC.m
 ## Interactive camera and activity study
 
 Open `/activity-study/index.html` in the web app or open the HTML directly beside its three WebP files. These generated paired stills illustrate first- and third-person views. Switching cameras preserves the selected word, wudu step and exit decision. Recitation uses a manually advanced word highlight across Arabic, transliteration and an English learning gloss. The exit encounter allows either waiting for the prayer to finish or walking behind the worshipper. The wash-station picture establishes the setting while the sequenced instructions change. Source links appear in the study. Religious review remains pending.
+
+## Present-day wardrobe and locations
+
+Use the neighborhood hoodie, knit kufi and commuter backpack as the returning explorer’s wardrobe reference. Preserve sleeve fabric, cuff color and accessories across first- and third-person views. Dress other characters for their own day: a denim overshirt at the bus stop, a plain hijab and sweatshirt at home, or a contemporary thobe in the prayer hall. Use apartment windows, transit displays, accessible taps and current footwear to establish place and time. Avoid fantasy armor and adventurer harnesses. Show the Islamic perspective through the character’s actions and choices.
+
+These four generated wardrobe studies supersede earlier costume references. Production review of artwork and religious text is pending.
+
+- [recitation](modern/recitation.webp)
+- [street-dawah](modern/street-dawah.webp)
+- [wudu](modern/wudu.webp)
+- [mosque-maze](modern/mosque-maze.webp)
