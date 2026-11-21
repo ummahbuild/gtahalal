@@ -63,3 +63,7 @@ The following are already authored on the transferred [draft implementation bran
 - New/revised missions must link to source claim IDs and mark religious approvals as pending.
 - Keep all public docs self-contained; **no private workspace or Notion links**.
 - Only call a feature implemented when source, test results and visible behavior support the claim.
+
+## Activity concept art
+
+[Five activity mockups and visual acceptance criteria](art/activities/README.md)
