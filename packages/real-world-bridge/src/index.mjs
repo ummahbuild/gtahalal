@@ -44,7 +44,7 @@ export function validateLearningUnit(unit) {
   if (typeof unit.id !== 'string' || !unit.id.trim()) errors.push('missing id');
   if (typeof unit.version !== 'number' || !Number.isInteger(unit.version) || unit.version < 1) errors.push('invalid version');
   if (!Array.isArray(unit.objectives) || !unit.objectives.length) errors.push('missing objectives');
-  if (unit.normativeReligious === true && (unit.reviewStatus !== 'approved' || !Array.isArray(unit.sourceClaimIds) || !unit.sourceClaimIds.length || unit.licensedContent !== true || !unit.reviewedVersion || unit.reviewedVersion !== unit.version)) errors.push('religious unit not approved for release');
+  if (unit.normativeReligious === true && (unit.reviewStatus !== 'approved' || !Array.isArray(unit.sourceClaimIds) || !unit.sourceClaimIds.length || unit.licensedContent !== true || !unit.reviewedVersion || unit.reviewedVersion !== unit.version || typeof unit.reviewerId !== 'string' || !unit.reviewerId.trim() || typeof unit.reviewerRole !== 'string' || !unit.reviewerRole.trim())) errors.push('religious unit not approved for release');
   if (unit.reviewStatus === 'draft' && unit.publish === true) errors.push('draft cannot publish');
   return errors;
 }
