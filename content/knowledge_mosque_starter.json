@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "review_status": "draft",
+  "library": {
+    "id": "bayhaven-hadith-library",
+    "location": "bayhaven-community-center",
+    "public_release_enabled": false,
+    "collection_candidates": [
+      "sahih-al-bukhari",
+      "sahih-muslim",
+      "sunan-abi-dawud",
+      "jami-at-tirmidhi",
+      "sunan-an-nasai",
+      "sunan-ibn-majah"
+    ],
+    "items": [],
+    "default_reader": {
+      "rtl": true,
+      "adjustable_text": true,
+      "screen_reader": true,
+      "offline_citation_fallback": true
+    }
+  },
+  "missions": [
+    {
+      "mission_id": "bh-library-01",
+      "title": "The Card Without a Source",
+      "status": "draft",
+      "source_claim_ids": [],
+      "entry": "act1-cropped-video",
+      "characters": [
+        "Maryam Idris",
+        "Ahmed",
+        "Fatimah"
+      ],
+      "objectives": [
+        "Talk to Maryam",
+        "Inspect a fictional unattributed notice",
+        "Choose to request verification or remove the notice"
+      ],
+      "choices": [
+        "ask_teacher",
+        "research_reference",
+        "remove_notice"
+      ],
+      "outcome": "source_hygiene_improved"
+    },
+    {
+      "mission_id": "bh-mosque-01",
+      "title": "Who Is This For?",
+      "status": "draft",
+      "source_claim_ids": [],
+      "entry": "act1-pantry-route",
+      "characters": [
+        "Hana Malik",
+        "Idris Okafor",
+        "Ahmed",
+        "Fatimah"
+      ],
+      "objectives": [
+        "Attend community consultation",
+        "Record accessibility needs",
+        "Choose retrofit, expansion, or site study"
+      ],
+      "choices": [
+        "retrofit",
+        "expand",
+        "study_new_site"
+      ],
+      "outcome": "community_brief_recorded"
+    }
+  ],
+  "mosque_project": {
+    "id": "bayhaven-community-space",
+    "review_status": "draft",
+    "currency": "fictional",
+    "phases": [
+      "brief",
+      "site_study",
+      "concept_design",
+      "budget",
+      "procurement",
+      "construction",
+      "operations"
+    ],
+    "professional_approval": false,
+    "sites": [],
+    "budget_lines": [],
+    "maintenance_tasks": []
+  }
+}
