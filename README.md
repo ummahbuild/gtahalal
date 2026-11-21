@@ -5,6 +5,13 @@
 
 > **Development status:** Early prototype and extensive design documentation. The `main` branch contains a procedural 3D scene, but **no verified public playable release**. A broader neighborhood prototype, typed game-core/content packages, and player-facing Act I content are in [draft PR #62](https://github.com/ummahbuild/gtahalal/pull/62), **not merged**. Clean install, browser testing, CI, asset review, and religious-content approval remain outstanding. Do not claim production readiness.
 
+
+## Mission audit and issue traceability
+
+**Canonical mission inventory:** [Mission Audit and Issue Map (2026-11-22)](docs/MISSION_AUDIT_AND_ISSUE_MAP_2026-11-22.md). This maps Bayhaven Act I, the eleven-industry campaign, everyday worship and minigames, generations, community safety, city travel, Hadith Library and mosque stewardship to existing GitHub issues, and distinguishes implemented, documented, review-blocked and draft-PR-only work.
+
+**Draft-only additions:** [Act I in PR #62](https://github.com/ummahbuild/gtahalal/pull/62) and [Hadith Library / Mosque Building in PR #65](https://github.com/ummahbuild/gtahalal/pull/65) are not merged or verified as playable. No religious teaching or construction guidance is approved by this audit.
+
 ## The story: A world worth building
 
 Choose **Ahmed** or **Fatimah** and begin in *Bayhaven*, a fictional coastal neighborhood. A community pantry needs support, neighbors disagree about limited resources, an online video tells only part of the story, and a blocked entrance exposes a real accessibility problem. Help Sara, Amina, Bilal, Maya, and Omar uncover what is happening, correct mistakes, organize fair deliveries, and leave a system that works without constant intervention.
