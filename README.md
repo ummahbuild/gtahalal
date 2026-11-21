@@ -3,20 +3,20 @@
 
 **Explore. Learn. Serve. Build.** Dunya imagines a living world where you navigate cities, care for neighbors, study, work, create ethical businesses, build institutions, and eventually pass responsibilities to future generations. The focus is on constructive choices, believable people, and meaningful consequences—not divine-reward scoring or copied game franchises.
 
-> **Development status:** Early prototype and extensive design documentation. The `main` branch contains a procedural 3D scene, but **no verified public playable release**. A broader neighborhood prototype, typed game-core/content packages, and player-facing Act I content are in [draft PR #62](https://github.com/ummahbuild/gtahalal/pull/62), **not merged**. Clean install, browser testing, CI, asset review, and religious-content approval remain outstanding. Do not claim production readiness.
+> **Development status (2026-11-22):** PRs [#62](https://github.com/ummahbuild/gtahalal/pull/62), [#65](https://github.com/ummahbuild/gtahalal/pull/65), [#66](https://github.com/ummahbuild/gtahalal/pull/66), and [#67](https://github.com/ummahbuild/gtahalal/pull/67) were merged to `main` at the owner's explicit request **without verified build or browser tests**. This is source deployment to the production branch, **not proof of a working live release**. `pnpm-lock.yaml` remains missing; clean install, CI, asset and religious review remain outstanding.
 
 
 ## Mission audit and issue traceability
 
 **Canonical mission inventory:** [Mission Audit and Issue Map (2026-11-22)](docs/MISSION_AUDIT_AND_ISSUE_MAP_2026-11-22.md). This maps Bayhaven Act I, the eleven-industry campaign, everyday worship and minigames, generations, community safety, city travel, Hadith Library and mosque stewardship to existing GitHub issues, and distinguishes implemented, documented, review-blocked and draft-PR-only work.
 
-**Draft-only additions:** [Act I in PR #62](https://github.com/ummahbuild/gtahalal/pull/62) and [Hadith Library / Mosque Building in PR #65](https://github.com/ummahbuild/gtahalal/pull/65) are not merged or verified as playable. No religious teaching or construction guidance is approved by this audit.
+**Now merged, not yet verified as playable:** [Act I in PR #62](https://github.com/ummahbuild/gtahalal/pull/62), [Hadith Library / Mosque Building in PR #65](https://github.com/ummahbuild/gtahalal/pull/65), [Industry Parody in PR #66](https://github.com/ummahbuild/gtahalal/pull/66), and [Real World First in PR #67](https://github.com/ummahbuild/gtahalal/pull/67). No religious teaching or construction guidance is approved by this merge.
 
 ## The story: A world worth building
 
 Choose **Ahmed** or **Fatimah** and begin in *Bayhaven*, a fictional coastal neighborhood. A community pantry needs support, neighbors disagree about limited resources, an online video tells only part of the story, and a blocked entrance exposes a real accessibility problem. Help Sara, Amina, Bilal, Maya, and Omar uncover what is happening, correct mistakes, organize fair deliveries, and leave a system that works without constant intervention.
 
-This opening arc is **planned**, with one simplified pantry interaction prototyped on the draft branch. Full story and map production briefs: [Act I](docs/PLAYER_STORY_ACT_ONE.md) and [Bayhaven map](docs/STARTER_NEIGHBORHOOD_MAP_REQUIREMENTS.md) **(both currently in PR #62)**.
+This opening arc is **planned**, with one simplified pantry interaction prototyped on the draft branch. Full story and map production briefs: [Act I](docs/PLAYER_STORY_ACT_ONE.md) and [Bayhaven map](docs/STARTER_NEIGHBORHOOD_MAP_REQUIREMENTS.md) **(merged from PR #62; gameplay not fully implemented)**.
 
 ### The Battle for a Better World
 
