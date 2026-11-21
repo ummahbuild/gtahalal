@@ -19,3 +19,7 @@ Place an original heavy white DUNYA wordmark and gold rule above a compact trans
 | [Street Dawah](street-dawah.webp) | At the bookstall the player may ask permission or let the passerby continue. A decline ends the exchange without penalty. |
 
 See the [prayer companion specification](../../PRAYER_COMPANION_REAL_TIME_SPEC.md), [gameplay systems](../../GAMEPLAY_SYSTEMS_EXPANSION.md) and [roadmap](../../ROADMAP.md) for the underlying mechanics and research gates.
+
+## Interactive camera and activity study
+
+Open `/activity-study/index.html` in the web app or open the HTML directly beside its three WebP files. These generated paired stills illustrate first- and third-person views. Switching cameras preserves the selected word, wudu step and exit decision. Recitation uses a manually advanced word highlight across Arabic, transliteration and an English learning gloss. The exit encounter allows either waiting for the prayer to finish or walking behind the worshipper. The wash-station picture establishes the setting while the sequenced instructions change. Source links appear in the study. Religious review remains pending.

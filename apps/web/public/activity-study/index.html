@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DUNYA · Activity study</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#171916;color:ivory;font:16px system-ui}main{max-width:1050px;margin:auto}header,nav,section{padding:14px clamp(12px,3vw,32px)}header,nav,.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}header{justify-content:space-between}strong{font-size:2rem;letter-spacing:-.06em;border-bottom:4px solid #edbc56}small{color:#e1cc9e}button,select{background:#333731;border:1px solid #737467;color:white;border-radius:6px;padding:10px;font:inherit;cursor:pointer}button[aria-pressed=true],button.primary,mark{color:#211a0e;background:#f5cc74}button:disabled{opacity:.45}button:focus-visible,select:focus-visible{outline:3px solid skyblue}figure{margin:0;aspect-ratio:16/9;background-size:100% 200%;position:relative}figcaption{position:absolute;bottom:4%;left:3%;padding:6px 12px;background:#171917df;border-left:3px solid #edbc56}h1{margin:.1em 0;font-size:clamp(1.4rem,4vw,2.1rem)}p{line-height:1.6}a{color:#f0cc81}.ar{font:clamp(2rem,6vw,3.5rem) serif;margin:.25em 0}.ar span,mark{padding:0 .1em;border-radius:4px}.lines{border-left:3px solid #d5ac58;padding-left:16px}.lines p{margin:.4em 0}li[aria-current=step]{color:#ffd47d;font-weight:bold}ol{columns:2}footer{margin:16px 0;color:#c7c7b9;font-size:.88rem}
+</style><main><header><strong>DUNYA</strong><small>Interactive concept</small></header><nav aria-label="Activities" id="tabs"></nav><figure id="scene"><figcaption id="place"></figcaption></figure><section><label>Camera <select id="camera"><option>First person</option><option>Third person</option></select></label><div id="panel" aria-live="polite"></div><div class="actions" id="actions"></div><footer id="sources"></footer></section></main>
+<script>
+const activities={quran:'Qur’an recitation',wudu:'Wudu Warrior',maze:'Mosque Maze'};
+const words=['قُلْ','هُوَ','اللَّهُ','أَحَدٌ'],latin=['Qul','huwa','Allāhu','aḥad'],english=['Say,','He','is Allah,','One.'];
+const steps=['Wash the hands','Rinse the mouth','Rinse the nose','Wash the face','Wash the forearms through the elbows','Wipe the head with wet hands','Wash the feet through the ankles'];
+const places={quran:'Home · Reading nook',wudu:'Mosque · Wash station',maze:'Mosque · Exit arcade'};
+let activity='quran',word=0,step=0,route='approach';
+function button(text,run,disabled=false){const b=document.createElement('button');b.textContent=text;b.disabled=disabled;b.onclick=()=>{run();render()};actions.append(b)}
+function line(parts){return parts.map((part,i)=>i===word?'<mark>'+part+'</mark>':part).join(' ')}
+function render(){
+ for(const b of tabs.children)b.setAttribute('aria-pressed',String(b.dataset.id===activity));
+ scene.style.backgroundImage='url('+activity+'.webp)';scene.style.backgroundPosition=camera.selectedIndex?'center bottom':'center top';place.textContent=places[activity];actions.replaceChildren();
+ if(activity==='quran'){
+ panel.innerHTML='<h1>Surah Al-Ikhlas · 112:1</h1><div class="lines"><p class="ar" lang="ar" dir="rtl">'+line(words)+'</p><p>'+line(latin)+'</p><p>'+line(english)+'</p></div><p>Word '+(word+1)+' of 4 · Follow the verse at your own pace.</p>';
+ button('Previous word',()=>word--,word===0);button(word===3?'Read again':'Next word',()=>word=(word+1)%4);
+ sources.innerHTML='Manual reading guide · English learning gloss · <a href="https://quran.com/112/1">Read or listen to the ayah</a>';
+ }else if(activity==='wudu'){
+ panel.innerHTML='<h1>'+(step===7?'Sequence reviewed':steps[step])+'</h1><ol>'+steps.map((s,i)=>'<li '+(i===step?'aria-current="step"':'')+'>'+s+'</li>').join('')+'</ol>';
+ button('Previous step',()=>step--,step===0);button(step===7?'Start again':step===6?'Finish review':'Next step',()=>step=(step+1)%8);
+ sources.innerHTML='Study sequence from <a href="https://sunnah.com/bukhari:159">Bukhari 159</a>. The Qur’an reference for purification is <a href="https://quran.com/5/6">Surah Al-Ma’idah 5:6</a>. Open it for context. This lesson illustrates one narrated sequence.';
+ }else{
+ const states={approach:['Find the exit','The exit lies beyond the prayer area.'],blocked:['Someone is praying','The direct route crosses in front of the worshipper. You can wait here or take the aisle behind them.'],clear:['The worshipper has finished','The direct route is clear.'],detour:['Behind the prayer area','The side aisle leads to the courtyard exit.'],exit:['Courtyard reached','You have left the prayer area.']};
+ panel.innerHTML='<h1>'+states[route][0]+'</h1><p>'+states[route][1]+'</p>';
+ if(route==='approach')button('Try the direct exit',()=>route='blocked');
+ if(route==='blocked'){button('Wait until prayer ends',()=>route='clear');button('Take the rear aisle',()=>route='detour')}
+ if(['clear','detour'].includes(route))button('Leave for courtyard',()=>route='exit');
+ if(route==='exit')button('Try another route',()=>route='approach');
+ sources.innerHTML='Etiquette reference · <a href="https://sunnah.com/bukhari:510">Sahih al-Bukhari 510</a>. Waiting advances scene time.';
+ }}
+for(const [id,title] of Object.entries(activities)){const b=document.createElement('button');b.textContent=title;b.dataset.id=id;b.onclick=()=>{activity=id;render()};tabs.append(b)}camera.onchange=render;render();
+</script></html>
