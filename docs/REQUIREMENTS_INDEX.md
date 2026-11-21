@@ -1,6 +1,9 @@
 # Dunya — public requirements index
 Status: index of existing source documents and draft PR work; documentation is not implementation or religious approval.
 
+## Canonical mission audit
+- [Mission audit and issue map](MISSION_AUDIT_AND_ISSUE_MAP_2026-11-22.md) — chapter/arc coverage, issue traceability, unmerged PR boundaries and release blockers. All mission authors should consult this before creating duplicate requirements or issues.
+
 ## Transfer and authoring
 - [Transfer audit](TRANSFER_GITHUB_AUDIT_2026-11-21.md) — which files and changes actually live on main versus draft PR #62.
 - [Narrative scene standard](NARRATIVE_SCENE_STANDARD.md) — machine-readable scene requirements and original dialogue authoring.
