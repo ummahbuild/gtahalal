@@ -1,3 +1,4 @@
+import { SessionSafeguards } from './SessionSafeguards';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows } from '@react-three/drei';
@@ -125,7 +126,10 @@ export function WorldPreview() {
     setDialogue(accept ? 'Thanks for helping our neighbors.' : 'No problem. Come back when you're ready.');
     setDialogueNpc(null);
   };
-  const save = () => { try { localStorage.setItem(SAVE_KEY, serializeSave(gameRef.current)); setDialogue('Saved locally on this device.'); } catch { setDialogue('Save failed: storage unavailable.'); } };
+  const save = useCallback((): boolean => { try { localStorage.setItem(SAVE_KEY, serializeSave(gameRef.current)); setDialogue('Saved locally on this device.'); return true; } catch { setDialogue('Save failed: storage unavailable.'); return false; } }, []);
+  const pauseForRealLife = useCallback(() => { pressed.current.clear(); setPaused(true); }, []);
+  const resumeAfterBreak = useCallback(() => setPaused(false), []);
+  const leaveAfterSave = useCallback(() => { pressed.current.clear(); setPaused(true); setDialogue('Progress saved. You can close this tab whenever you are ready.'); }, []);
   useEffect(() => {
     if (!loaded) return;
     const handle = window.setInterval(() => { if (!paused) { try { localStorage.setItem(SAVE_KEY, serializeSave(gameRef.current)); } catch { /* storage may be disabled */ } } }, 5000);
@@ -148,6 +152,7 @@ export function WorldPreview() {
         <button style={buttonStyle} onClick={() => setShowJournal(v => !v)} aria-expanded={showJournal}>Journal</button>
         <button style={buttonStyle} onClick={() => setReducedMotion(v => !v)} aria-pressed={reducedMotion}>Reduced motion: {reducedMotion ? 'On' : 'Off'}</button>
       </div>
+      <SessionSafeguards onPause={pauseForRealLife} onSave={save} onResume={resumeAfterBreak} onLeave={leaveAfterSave} />
       <p style={{ fontSize:12, margin:'8px 0 0' }}>{PANTRY_MISSION.chapter} · {game.quest==='available'?'Meet Sara at Harbor Plaza':game.quest==='active'?'Find Amina and confirm the pantry handoff':'Pantry handoff complete — thank you!'}</p>
     </header>
     <Canvas shadows={quality==='high'} dpr={quality==='high'?[1,1.75]:[1,1.25]} camera={{ position:[6,5,8], fov:55 }} gl={{ antialias:quality==='high', powerPreference:'high-performance' }}>
