@@ -17,6 +17,9 @@ This public repository is an original, constructive, browser-first 3D Muslim lif
 9. docs/SCENARIO_SPECIFICATION_STANDARD.md, docs/CONNECTED_STORY_EXAMPLES.md and docs/REVIEW_TRACEABILITY_MATRIX.md for testable story specs.
 10. docs/CLAUDE_NEXT_WORK_BATCH.md for the current bounded documentation queue.
 
+11. docs/AGENT_PR_AUDIT_PLAYBOOK.md and .claude/skills/dunya-pr-auditor/SKILL.md for PR reviews and CI-minute discipline.
+12. docs/LANDING_PAGE_COPY_V1.md for truthful prelaunch public copy.
+
 ## Working agreement
 - Public repo: no personal information, private records, secrets, private contact details or unpublished personal stories.
 - Never treat proposed content as verified Islamic rulings, legal advice or facts about named real organizations.
@@ -30,3 +33,5 @@ This public repository is an original, constructive, browser-first 3D Muslim lif
 - End every work session with: files changed, issues touched, tests actually run, risks, next three tasks.
 
 - Never link to Notion or private workspaces in GitHub content; copy approved, non-sensitive requirements into repository Markdown with proper source provenance.
+
+- Do not trigger GitHub Actions automatically or on draft PRs; use local audits first and dispatch the manual quick/full workflow only after review-ready evidence.

@@ -1,22 +1,46 @@
-name: CI
+name: Manual verification (opt-in)
+# Intentionally manual while Actions minutes are limited. PRs do not automatically
+# trigger expensive installs/builds. Maintainers run local checks first and
+# dispatch this workflow only for review-ready changes.
 on:
-  pull_request:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'Checks to run'
+        required: true
+        type: choice
+        default: quick
+        options: [quick, full]
+permissions:
+  contents: read
+concurrency:
+  group: dunya-manual-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  checks:
+  verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: '9.15.4'
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: pnpm
-      - run: pnpm install --no-frozen-lockfile
-      - run: pnpm lint
-      - run: pnpm typecheck
-      - run: pnpm test
-      - run: pnpm build
+      - name: Require committed lockfile
+        run: test -f pnpm-lock.yaml || { echo "::error::Generate and commit pnpm-lock.yaml locally before using CI"; exit 1; }
+      - name: Frozen install
+        run: pnpm install --frozen-lockfile
+      - name: Validate content and privacy
+        run: python3 scripts/audit_repo.py
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Unit tests
+        run: pnpm test
+      - name: Production build (full only)
+        if: inputs.scope == 'full'
+        run: pnpm build
