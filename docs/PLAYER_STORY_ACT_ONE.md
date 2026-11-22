@@ -79,3 +79,7 @@ Both characters retain the same agency, mission rewards and service opportunitie
 
 ## Release gates
 Dialogue requires writing/cultural review; religious principles require separate qualified scholarly approval; privacy, child safety, accessibility, localization, and asset rights remain gates. Do not market these as implemented until integrated and tested.
+
+## Episode 3 implementation update
+The starter game now has a **Pantry planning** overlay: after completing the pantry handoff, speak to Bilal to unlock three accessible-delivery planning options; then hear Omar to unlock three fictional procurement arrangements. The player selects one of each and sees illustrative access/reliability/cost trade-offs. This is a decision prototype, not a real route map, cost-accounting system or complete Episode 3. Review and browser testing remain pending.
+
