@@ -58,3 +58,8 @@ Status: canonical **navigation and state ledger** as of 2026-11-22. This documen
 
 ## Source discipline
 The founder-ethics and editorial design is an original adaptation of high-level ideas from *Perspectives of Muslim Founders* and ummah.build's content calendar. No private workspace links or unpublished manuscript passages are reproduced. Real-world corporation references are categories, not factual allegations.
+
+## Cropped-video investigation — implemented source, unverified
+- Maya and Omar are now in Bayhaven with branching NPC dialogue and fictional evidence flags. Journal reports rumor/verification/correction stages. See [NPC Dialogue Logic](BAYHAVEN_NPC_DIALOGUE_LOGIC.md).
+- Still specified only: independent source corroboration, privacy-reviewed evidence UI, accessibility route construction, actual procurement and five-episode Act I completion.
+
