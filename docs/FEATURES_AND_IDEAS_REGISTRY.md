@@ -75,3 +75,6 @@ The founder-ethics and editorial design is an original adaptation of high-level 
 
 ## Game studio audit system — source implemented, execution unverified
 Ten role-specific `.claude/skills/dunya-*/SKILL.md` files and [Game Studio Audit Playbook](GAME_STUDIO_AUDIT_PLAYBOOK.md) provide audit workflows. Source-level findings filed as issues #80 (save sync), #81 (NPC effect consistency), #82 (founder metric integrity), #83 (dialog accessibility). Existing #1/#26 and #58/#60/#61 cover lockfile and visual/mobile work. No automated browser, performance or scholarly review executed as part of this audit.
+
+## Founder progress integrity improvement (#82)
+Source fix: institutional scores now derive exclusively from validated story decisions, not arbitrary stored metric snapshots. This preserves v1 decision saves and prevents inconsistent score displays after reload. Regression tests authored; clean build and browser QA pending.
