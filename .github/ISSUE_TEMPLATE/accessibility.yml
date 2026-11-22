@@ -1,0 +1,24 @@
+name: "Accessibility or translation"
+description: "Improve keyboard, screen-reader, reduced-motion, captions, RTL or localization."
+title: "[Accessibility] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Screen / mission / locale
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Barrier and reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Accessible alternative / translation suggestion
+      description: "Include device, assistive technology and test cases."
+    validations:
+      required: true
