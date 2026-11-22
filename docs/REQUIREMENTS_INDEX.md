@@ -98,3 +98,6 @@ The following are already authored on the transferred [draft implementation bran
 ## Act I route and procurement choices
 - [Act I](PLAYER_STORY_ACT_ONE.md) now has a source-implemented planning overlay with route and supplier decisions, idempotent saved flags and explicit limitations in [Feature Logic](FEATURE_LOGIC_AND_STATE_CONTRACT.md).
 
+
+## Act I community continuity
+- [Act I Episode 4](PLAYER_STORY_ACT_ONE.md) — three source-implemented legacy choices with prerequisites and local-save flags; full sustainability simulation remains specified only.

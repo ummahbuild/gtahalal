@@ -4,7 +4,7 @@ import { dialogueFor, chooseDialogue } from './npcDialogues.mjs';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows } from '@react-three/drei';
-import { NPCS, OBSTACLES, deliverPantry, evidenceStatus, recordEvidence, ROUTE_OPTIONS, PROCUREMENT_OPTIONS, planPantryRoute, planPantryProcurement, pantryPlanStatus, freshState, migrateSave, move, nearbyNpc, serializeSave, talk, tick, type GameState, type Persona } from '@dunya/game-core';
+import { NPCS, OBSTACLES, deliverPantry, evidenceStatus, recordEvidence, ROUTE_OPTIONS, PROCUREMENT_OPTIONS, planPantryRoute, planPantryProcurement, pantryPlanStatus, LEGACY_OPTIONS, chooseLegacy, legacyStatus, freshState, migrateSave, move, nearbyNpc, serializeSave, talk, tick, type GameState, type Persona } from '@dunya/game-core';
 import { PANTRY_MISSION } from '@dunya/content';
 import * as THREE from 'three';
 
@@ -83,6 +83,7 @@ export function WorldPreview() {
   const [showMap, setShowMap] = useState(false);
   const [showJournal, setShowJournal] = useState(false);
   const [showPantryPlan, setShowPantryPlan] = useState(false);
+  const [showLegacy, setShowLegacy] = useState(false);
   const [showFounderStories, setShowFounderStories] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const pressed = useRef(new Set<string>());
@@ -117,14 +118,14 @@ export function WorldPreview() {
     return () => window.removeEventListener('keydown', onKey);
   }, [interact, paused]);
   const onTick = useCallback((dt: number) => {
-    if (paused || dialogueNpc || showMap || showJournal || showFounderStories || showPantryPlan) return;
+    if (paused || dialogueNpc || showMap || showJournal || showFounderStories || showPantryPlan || showLegacy) return;
     const keys = pressed.current;
     let dx = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'));
     let dz = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'));
     const pad = navigator.getGamepads?.()[0];
     if (pad) { dx += Math.abs(pad.axes[0] ?? 0) > 0.18 ? pad.axes[0] : 0; dz += Math.abs(pad.axes[1] ?? 0) > 0.18 ? pad.axes[1] : 0; }
     setGame(s => tick(move(s, dx, dz, dt), dt));
-  }, [paused, dialogueNpc, showMap, showJournal, showFounderStories, showPantryPlan]);
+  }, [paused, dialogueNpc, showMap, showJournal, showFounderStories, showPantryPlan, showLegacy]);
   const respond = (choiceId: string) => {
     if (!dialogueNpc) return;
     const choice = chooseDialogue(dialogueNpc, choiceId);
@@ -168,12 +169,23 @@ export function WorldPreview() {
         <button style={buttonStyle} onClick={() => setShowMap(v => !v)} aria-expanded={showMap}>Map</button>
         <button style={buttonStyle} onClick={() => setShowJournal(v => !v)} aria-expanded={showJournal}>Journal</button>
         <button style={buttonStyle} onClick={() => { pressed.current.clear(); setPaused(true); setShowPantryPlan(true); }} aria-expanded={showPantryPlan}>Pantry planning</button>
+        <button style={buttonStyle} onClick={() => { pressed.current.clear(); setPaused(true); setShowLegacy(true); }} aria-expanded={showLegacy}>Build something lasting</button>
         <button style={buttonStyle} onClick={() => { pressed.current.clear(); setPaused(true); setShowFounderStories(true); }} aria-expanded={showFounderStories}>Founder stories</button>
         <button style={buttonStyle} onClick={() => setReducedMotion(v => !v)} aria-pressed={reducedMotion}>Reduced motion: {reducedMotion ? 'On' : 'Off'}</button>
       </div>
       <SessionSafeguards onPause={pauseForRealLife} onSave={save} onResume={resumeAfterBreak} onLeave={leaveAfterSave} />
       <p style={{ fontSize:12, margin:'8px 0 0' }}>{PANTRY_MISSION.chapter} · {game.quest==='available'?'Meet Sara at Harbor Plaza':game.quest==='active'?'Find Amina and confirm the pantry handoff':'Pantry handoff complete — thank you!'}</p>
     </header>
+    {showLegacy && <section role="dialog" aria-modal="true" aria-label="Pantry long-term governance" style={{position:'absolute',inset:0,zIndex:15,overflowY:'auto',background:'rgba(10,25,32,.98)',padding:18,color:'#fff'}}>
+      <div style={{maxWidth:650,margin:'0 auto',display:'grid',gap:12}}>
+        <h2>Build Something That Lasts</h2>
+        <p>Sara: One good day helped. What happens next week when we are all busy?</p>
+        <p>{legacyStatus(game)}</p>
+        {LEGACY_OPTIONS.map(option => <button key={option.id} style={buttonStyle} disabled={!!game.inventory.legacy_chosen || !game.inventory.route_planned || !game.inventory.procurement_planned} onClick={()=>setGame(s=>chooseLegacy(s,option.id))}>{option.title} · resilience {option.resilience}/3 · inclusion {option.inclusion}/3 · upkeep {option.upkeep}/3</button>)}
+        <p style={{fontSize:12}}>Fictional institutional planning. Ratings are illustrative; there are no real funds, contracts, or religious judgments.</p>
+        <button style={buttonStyle} onClick={()=>setShowLegacy(false)}>Return to Bayhaven</button>
+      </div>
+    </section>}
     {showFounderStories && <FounderStories onClose={() => setShowFounderStories(false)} />}
     {showPantryPlan && <section role="dialog" aria-modal="true" aria-label="Pantry route and supplier planning" style={{position:'absolute',inset:0,zIndex:14,overflowY:'auto',background:'rgba(10,25,32,.98)',padding:18,color:'#fff'}}>
       <div style={{maxWidth:650,margin:'0 auto',display:'grid',gap:12}}>
@@ -206,6 +218,7 @@ export function WorldPreview() {
       <strong>First Neighbors</strong>
       <p>{game.quest==='available'?'Meet Sara near the plaza and decide whether to help.':game.quest==='active'?'Find Amina near the pantry and confirm the handoff.':'The pantry handoff is complete. You can continue exploring.'}</p>
       <h3 style={{fontSize:14}}>The Curb and the Contract</h3><p>{pantryPlanStatus(game)}</p>
+      <h3 style={{fontSize:14}}>Build Something That Lasts</h3><p>{legacyStatus(game)}</p>
       <h3 style={{fontSize:14}}>The Cropped Video</h3>
       <p>{evidenceStatus(game)}</p>
       <p style={{fontSize:12}}>Evidence: {game.inventory.evidence_hear_omar ? 'Omar heard · ' : ''}{game.inventory.evidence_verify_clip ? 'Clip checked · ' : ''}{game.inventory.evidence_share_rumor ? 'Unverified post · ' : ''}{game.inventory.evidence_correct_rumor ? 'Correction issued' : ''}</p>

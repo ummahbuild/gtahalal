@@ -83,3 +83,6 @@ Dialogue requires writing/cultural review; religious principles require separate
 ## Episode 3 implementation update
 The starter game now has a **Pantry planning** overlay: after completing the pantry handoff, speak to Bilal to unlock three accessible-delivery planning options; then hear Omar to unlock three fictional procurement arrangements. The player selects one of each and sees illustrative access/reliability/cost trade-offs. This is a decision prototype, not a real route map, cost-accounting system or complete Episode 3. Review and browser testing remain pending.
 
+
+## Episode 4 source implementation update
+The game now includes a **Build Something That Lasts** overlay after route and procurement planning. The player chooses a volunteer rota, a local supply partnership, or a privacy-preserving community board. Each has fictional resilience, inclusion and upkeep ratings and a narrative consequence. Choice persists as an idempotent flag in the v1 inventory. This is a first decision prototype, **not** a real recurring-cost simulation, volunteer scheduler or governance election.

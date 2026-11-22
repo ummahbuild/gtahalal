@@ -118,6 +118,26 @@ export function pantryPlanStatus(state: GameState): string {
   if (!state.inventory.procurement_planned) return 'Choose a transparent fictional supply arrangement.';
   return 'Route and procurement choices recorded. Review their trade-offs with the neighborhood.';
 }
+/** Episode 4: original fictional community-institution continuity choices. */
+export type LegacyOption = 'volunteer_rota' | 'supplier_partnership' | 'community_board';
+export const LEGACY_OPTIONS = [
+  { id: 'volunteer_rota', title: 'Train a volunteer rota and maintain handoff notes', upkeep: 2, resilience: 3, inclusion: 2, outcome: 'A rota helps distribute responsibilities, but training and replacement volunteers remain essential.' },
+  { id: 'supplier_partnership', title: 'Create a transparent local supply partnership', upkeep: 3, resilience: 3, inclusion: 2, outcome: 'The pantry gains predictable deliveries while needing independent pricing review and contingency suppliers.' },
+  { id: 'community_board', title: 'Create a privacy-preserving community update board', upkeep: 1, resilience: 2, inclusion: 3, outcome: 'Neighbors can see service changes without exposing who receives help; moderation and upkeep still matter.' },
+] as const;
+export function chooseLegacy(state: GameState, option: LegacyOption): GameState {
+  if (!LEGACY_OPTIONS.some(item => item.id === option)) return state;
+  if (state.quest !== 'complete' || !state.inventory.route_planned || !state.inventory.procurement_planned) return state;
+  if (state.inventory.legacy_chosen) return state;
+  return { ...state, inventory: { ...state.inventory, legacy_chosen: 1, ['legacy_' + option]: 1 } };
+}
+export function legacyStatus(state: GameState): string {
+  if (state.quest !== 'complete') return 'Complete the pantry handoff first.';
+  if (!state.inventory.route_planned || !state.inventory.procurement_planned) return 'Complete the route and supplier planning first.';
+  if (!state.inventory.legacy_chosen) return 'Choose how the pantry will remain useful after the first volunteers leave.';
+  const selected = LEGACY_OPTIONS.find(item => state.inventory['legacy_' + item.id]);
+  return selected ? selected.outcome : 'A continuity plan is recorded.';
+}
 export function tick(state: GameState, elapsedSeconds: number): GameState {
   if (!Number.isFinite(elapsedSeconds) || elapsedSeconds <= 0) return state;
   return { ...state, timeMinutes: (state.timeMinutes + Math.min(elapsedSeconds, 1) * 0.25) % 1440 };

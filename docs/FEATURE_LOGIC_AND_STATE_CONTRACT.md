@@ -78,3 +78,9 @@ Every PR changing story logic updates this file, [Feature Registry](FEATURES_AND
 - `pantryPlanStatus` exposes the next prerequisite in the journal and planning overlay. Route/supplier costs are **illustrative ratings**, not consumed game currency or measured outcomes. The world pauses while planning is open; closing returns to paused gameplay.
 - Still missing: live map routing, inventory-count reconciliation, vendor quotes, budget conservation, repair/reversal and browser accessibility evidence. Source-contract tests authored but not executed.
 
+
+## Episode 4 institutional continuity logic
+- `LEGACY_OPTIONS` contains `volunteer_rota`, `supplier_partnership`, `community_board` with illustrative upkeep/resilience/inclusion ratings and narrative outcomes.
+- `chooseLegacy` requires complete pantry quest plus `route_planned` and `procurement_planned`, accepts only known option IDs and prevents duplicate selection. Stores `legacy_chosen` and `legacy_<id>` in the v1 inventory.
+- `legacyStatus` supplies next-step or outcome text to the journal and overlay. No real monetary accounting, elections, long-term maintenance simulation or cross-chapter state exists yet.
+- Source-contract tests added at `apps/game/tests/pantry-legacy.test.mjs`; not executed in a clean build.
