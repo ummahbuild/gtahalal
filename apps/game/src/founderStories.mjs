@@ -84,17 +84,3 @@ export function normalizeProgress(raw) {
   return { version: 1, decisions, metrics };
 }
 
-export function resetDecision(progress, storyId) {
-  if (!STORIES.some(story => story.id === storyId)) throw new RangeError('Unknown story');
-  const previous = normalizeProgress(progress);
-  const decisions = { ...previous.decisions };
-  const chosen = decisions[storyId];
-  if (!chosen) return previous;
-  const story = STORIES.find(item => item.id === storyId);
-  const choice = story.choices.find(item => item.id === chosen);
-  delete decisions[storyId];
-  const metrics = Object.fromEntries(Object.keys(INITIAL_METRICS).map(key => [
-    key, Math.max(0, Math.min(10, previous.metrics[key] - choice.effects[key])),
-  ]));
-  return { version: 1, decisions, metrics };
-}
