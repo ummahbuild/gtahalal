@@ -1,0 +1,1332 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "release_enabled": false,
+  "source_verified_for_live_play": false,
+  "real_time_safety_claims": false,
+  "regions": [
+    {
+      "id": "sudan",
+      "region": "Sudan",
+      "source_url": "https://www.gov.uk/government/publications/sudan-country-policy-and-information-notes/country-policy-and-information-note-humanitarian-situation-sudan-september-2026-accessible",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "SD-01",
+          "title": "The Missing Supply Manifest",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SD-02",
+          "title": "The Road Not Taken",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SD-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SD-03",
+          "title": "Water After the Outage",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SD-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SD-04",
+          "title": "The Clinic Without Power",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SD-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SD-05",
+          "title": "The Return That Can Wait",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SD-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaza-opt",
+      "region": "Gaza / Occupied Palestinian Territory",
+      "source_url": "https://www.unfpa.org/HAO2026",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "GZ-01",
+          "title": "What the Map Does Not Show",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "GZ-02",
+          "title": "The Water Queue",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "GZ-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "GZ-03",
+          "title": "The School in Two Shifts",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "GZ-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "GZ-04",
+          "title": "A Hospital's Last Generator",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "GZ-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "GZ-05",
+          "title": "Rebuild With Residents",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "GZ-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yemen",
+      "region": "Yemen",
+      "source_url": "https://yemen.un.org/en/312711-ocha-yemen-yemen-humanitarian-needs-and-response-plan-2026-march-2026",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "YE-01",
+          "title": "The Price of Flour",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "YE-02",
+          "title": "Water Before Sunrise",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "YE-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "YE-03",
+          "title": "The Clinic Referral",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "YE-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "YE-04",
+          "title": "The Unpaid Teacher",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "YE-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "YE-05",
+          "title": "The Market Reopens",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "YE-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afghanistan",
+      "region": "Afghanistan",
+      "source_url": "https://cdn.who.int/media/docs/default-source/documents/emergencies/who-phsa-afghanistan_march_2026.pdf?download=true",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "AF-01",
+          "title": "The Closed Classroom",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AF-02",
+          "title": "The Returnee's Documents",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AF-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AF-03",
+          "title": "Winter Shelter",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AF-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AF-04",
+          "title": "Care Without Delay",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AF-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AF-05",
+          "title": "The Learning Trust",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AF-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rohingya",
+      "region": "Rohingya / Myanmar / Bangladesh",
+      "source_url": "https://www.unhcr.org/emergencies/rohingya-emergency",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "RH-01",
+          "title": "A Name on the Register",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "RH-02",
+          "title": "The Monsoon Path",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "RH-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "RH-03",
+          "title": "The School That Moves",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "RH-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "RH-04",
+          "title": "Consent to Be Counted",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "RH-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "RH-05",
+          "title": "Return Is a Choice",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "RH-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "somalia",
+      "region": "Somalia / Horn of Africa",
+      "source_url": "https://www.unfpa.org/HAO2026",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "SO-01",
+          "title": "The Empty Borehole",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SO-02",
+          "title": "Pasture and Market",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SO-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SO-03",
+          "title": "The Mobile Clinic",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SO-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SO-04",
+          "title": "School Across Seasons",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SO-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SO-05",
+          "title": "The Water Committee",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SO-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sahel",
+      "region": "Sahel",
+      "source_url": "https://www.unfpa.org/HAO2026",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "SA-01",
+          "title": "The Road and the Price",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SA-02",
+          "title": "The Farmer's Ledger",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SA-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SA-03",
+          "title": "The Displaced Classroom",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SA-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SA-04",
+          "title": "The Public Budget",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SA-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SA-05",
+          "title": "The Community Council",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SA-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syria",
+      "region": "Syria and host communities",
+      "source_url": "https://www.unfpa.org/HAO2026",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "SY-01",
+          "title": "The Rental Agreement",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SY-02",
+          "title": "The Repair Queue",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SY-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SY-03",
+          "title": "The Missing Certificate",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SY-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SY-04",
+          "title": "A Clinic for All",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SY-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "SY-05",
+          "title": "The Long-Term Neighbor",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "SY-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rights-accountability",
+      "region": "Fictional government accountability",
+      "source_url": "https://www.unfpa.org/HAO2026",
+      "source_status": "research_lead",
+      "fictional_simulation": true,
+      "missions": [
+        {
+          "mission_id": "AC-01",
+          "title": "The Official Speech",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AC-02",
+          "title": "The Closed Door",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AC-01"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AC-03",
+          "title": "The Aid Agreement",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AC-02"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AC-04",
+          "title": "The Rights Hearing",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AC-03"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "AC-05",
+          "title": "The Charter That Outlives Power",
+          "review_status": "draft",
+          "playable": false,
+          "prerequisites": [
+            "AC-04"
+          ],
+          "real_world_actions_optional": true,
+          "real_donations_enabled": false,
+          "trauma_review_required": true,
+          "local_review_required": true,
+          "legal_review_required": true,
+          "issue_numbers": [
+            3,
+            5,
+            9,
+            21,
+            27,
+            32,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    }
+  ]
+}
