@@ -1,0 +1,709 @@
+{
+  "schema_version": 1,
+  "chapter_id": "debt-empire",
+  "status": "draft",
+  "fictional": true,
+  "sharia_approval": false,
+  "legal_approval": false,
+  "release_enabled": false,
+  "acts": [
+    {
+      "act_id": "price-of-convenience",
+      "missions": [
+        {
+          "mission_id": "debt-empire-01",
+          "display_number": "4.01",
+          "title": "The Repair Bill",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-02",
+          "display_number": "4.02",
+          "title": "The Offer on the Screen",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-01"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-03",
+          "display_number": "4.03",
+          "title": "The Fee Nobody Saw",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-02"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-04",
+          "display_number": "4.04",
+          "title": "The Debt Map",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-03"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-05",
+          "display_number": "4.05",
+          "title": "The Hearing",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-04"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "act_id": "fair-contract",
+      "missions": [
+        {
+          "mission_id": "debt-empire-06",
+          "display_number": "4.06",
+          "title": "The Scholar's Questions",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-05"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-07",
+          "display_number": "4.07",
+          "title": "The Asset Is Real",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-06"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-08",
+          "display_number": "4.08",
+          "title": "Partners in Profit and Loss",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-07"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-09",
+          "display_number": "4.09",
+          "title": "Benevolence Has a Budget",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-08"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-10",
+          "display_number": "4.10",
+          "title": "The Review Board",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-09"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "act_id": "build-alternative",
+      "missions": [
+        {
+          "mission_id": "debt-empire-11",
+          "display_number": "4.11",
+          "title": "The First Hundred Members",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-10"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-12",
+          "display_number": "4.12",
+          "title": "Liquidity Day",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-11"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-13",
+          "display_number": "4.13",
+          "title": "Underwriting Without Humiliation",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-12"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-14",
+          "display_number": "4.14",
+          "title": "The First Default",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-13"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-15",
+          "display_number": "4.15",
+          "title": "The Audit Nobody Wanted",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-14"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "act_id": "system-pushback",
+      "missions": [
+        {
+          "mission_id": "debt-empire-16",
+          "display_number": "4.16",
+          "title": "The Capital Offer",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-15"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-17",
+          "display_number": "4.17",
+          "title": "The Price War",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-16"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-18",
+          "display_number": "4.18",
+          "title": "Housing for Everyone",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-17"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-19",
+          "display_number": "4.19",
+          "title": "The Mosque's Operating Reserve",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-18"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-20",
+          "display_number": "4.20",
+          "title": "Cross-Border Trade",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-19"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    },
+    {
+      "act_id": "year-without-you",
+      "missions": [
+        {
+          "mission_id": "debt-empire-21",
+          "display_number": "4.21",
+          "title": "The Downturn",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-20"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-22",
+          "display_number": "4.22",
+          "title": "The Governance Crisis",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-21"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-23",
+          "display_number": "4.23",
+          "title": "The Rumor Run",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-22"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-24",
+          "display_number": "4.24",
+          "title": "The Successor",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-23"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        },
+        {
+          "mission_id": "debt-empire-25",
+          "display_number": "4.25",
+          "title": "The Ledger Remains",
+          "version": 1,
+          "review_status": "draft",
+          "playable": false,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "debt-empire-24"
+          ],
+          "choices_required": 3,
+          "repair_path_required": true,
+          "real_money_transactions": false,
+          "issue_numbers": [
+            3,
+            9,
+            11,
+            14,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ]
+        }
+      ]
+    }
+  ]
+}
