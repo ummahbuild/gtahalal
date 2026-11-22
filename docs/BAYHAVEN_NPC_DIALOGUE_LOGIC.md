@@ -32,3 +32,6 @@ Three choices per NPC; no duplicate reward; decline without penalty; handoff req
 - This is a **simple conversation/evidence prototype**, not a media upload, full multi-source verification system, city permit simulation, or a final published news story. It does not determine real-world wrongdoing.
 - Known follow-up: move eligibility checks into one shared pure function so response text and state transitions cannot diverge; test focus, saving, and browser behavior.
 
+
+## Dialogue transition consistency (#81)
+`applyDialogueEffect` now checks NPC proximity, valid NPC/effect combinations, quest prerequisites, evidence dependencies and repeated actions in one game-core function returning `{state,applied,reason}`. `WorldPreview.respond` uses that same result for the state update and the displayed message, synchronizing `gameRef` for the accepted dialogue transition. No duplicate UI-only evidence prerequisites. Automated source-contract tests authored; full game/browser verification remains pending.

@@ -138,6 +138,43 @@ export function legacyStatus(state: GameState): string {
   const selected = LEGACY_OPTIONS.find(item => state.inventory['legacy_' + item.id]);
   return selected ? selected.outcome : 'A continuity plan is recorded.';
 }
+/** Single source of truth for a dialogue effect and its player-facing outcome. */
+export type DialogueEffect = 'none' | 'start_pantry' | 'deliver_pantry' | 'accessibility' | EvidenceAction;
+export type DialogueTransition = { state: GameState; applied: boolean; reason: string };
+export function applyDialogueEffect(state: GameState, npcId: string, effect: DialogueEffect): DialogueTransition {
+  const npc = NPCS.find(n => n.id === npcId);
+  if (!npc || Math.hypot(npc.x - state.position.x, npc.z - state.position.z) > 2.2)
+    return { state, applied: false, reason: 'Move closer to this neighbor before making a choice.' };
+  if (effect === 'none') return { state, applied: false, reason: 'You can return whenever you are ready.' };
+  if (effect === 'start_pantry' && npcId !== 'sara' || effect === 'deliver_pantry' && npcId !== 'amina' ||
+      effect === 'hear_omar' && npcId !== 'omar' || ['verify_clip','share_rumor','correct_rumor'].includes(effect) && npcId !== 'maya')
+    return { state, applied: false, reason: 'This choice is not available from this neighbor.' };
+  if (effect === 'start_pantry') {
+    if (state.quest !== 'available') return { state, applied: false, reason: 'The pantry quest has already started.' };
+    const next = talk(state, npcId);
+    return { state: next, applied: next !== state, reason: 'Speak with Amina to continue the pantry handoff.' };
+  }
+  if (effect === 'deliver_pantry') {
+    if (state.quest !== 'active') return { state, applied: false, reason: 'Speak with Sara to start the pantry quest first.' };
+    const next = deliverPantry(talk(state, npcId));
+    return { state: next, applied: next.quest === 'complete', reason: 'The pantry handoff has been recorded.' };
+  }
+  if (effect === 'accessibility') {
+    const next = talk(state, npcId);
+    return { state: next, applied: next !== state, reason: 'You can explore the delivery route with Bilal and the pantry team.' };
+  }
+  if (state.quest !== 'complete') return { state, applied: false, reason: 'Complete the pantry handoff before investigating the video.' };
+  if (effect === 'verify_clip' && !state.inventory.evidence_hear_omar)
+    return { state, applied: false, reason: 'Hear Omar first to understand the missing context.' };
+  if (effect === 'correct_rumor' && !state.inventory.evidence_share_rumor)
+    return { state, applied: false, reason: 'There is no earlier unverified post to correct.' };
+  if (effect === 'hear_omar' || effect === 'verify_clip' || effect === 'share_rumor' || effect === 'correct_rumor') {
+    const next = recordEvidence(talk(state, npcId), effect);
+    return { state: next, applied: next.inventory['evidence_' + effect] === 1 && !state.inventory['evidence_' + effect],
+      reason: state.inventory['evidence_' + effect] ? 'This evidence is already recorded.' : 'Your fictional evidence journal has been updated.' };
+  }
+  return { state, applied: false, reason: 'Unknown dialogue effect.' };
+}
 export function tick(state: GameState, elapsedSeconds: number): GameState {
   if (!Number.isFinite(elapsedSeconds) || elapsedSeconds <= 0) return state;
   return { ...state, timeMinutes: (state.timeMinutes + Math.min(elapsedSeconds, 1) * 0.25) % 1440 };

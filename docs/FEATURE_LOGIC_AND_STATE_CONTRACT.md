@@ -90,3 +90,6 @@ Every PR changing story logic updates this file, [Feature Registry](FEATURES_AND
 
 ## Community career and bulletin v1
 `communityCareer.mjs` stores `version:1,career,answers` separately at `dunya-miami-community-v1`. Career IDs are whitelisted. Four bulletin steps are ordered and idempotent; saved answers are sanitized, no attendance/faith data. Completion means logistics exercise completed, **not** a delivered khutbah. Separate local save from Bayhaven; full QA pending. See [Miami mode](MIAMI_COMMUNITY_CAREER_GAMEPLAY.md).
+
+## Dialogue transition consistency (#81)
+`applyDialogueEffect` now checks NPC proximity, valid NPC/effect combinations, quest prerequisites, evidence dependencies and repeated actions in one game-core function returning `{state,applied,reason}`. `WorldPreview.respond` uses that same result for the state update and the displayed message, synchronizing `gameRef` for the accepted dialogue transition. No duplicate UI-only evidence prerequisites. Automated source-contract tests authored; full game/browser verification remains pending.

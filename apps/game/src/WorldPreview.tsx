@@ -5,7 +5,7 @@ import { dialogueFor, chooseDialogue } from './npcDialogues.mjs';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows } from '@react-three/drei';
-import { NPCS, OBSTACLES, deliverPantry, evidenceStatus, recordEvidence, ROUTE_OPTIONS, PROCUREMENT_OPTIONS, planPantryRoute, planPantryProcurement, pantryPlanStatus, LEGACY_OPTIONS, chooseLegacy, legacyStatus, freshState, migrateSave, move, nearbyNpc, serializeSave, talk, tick, type GameState, type Persona } from '@dunya/game-core';
+import { NPCS, OBSTACLES, applyDialogueEffect, evidenceStatus, ROUTE_OPTIONS, PROCUREMENT_OPTIONS, planPantryRoute, planPantryProcurement, pantryPlanStatus, LEGACY_OPTIONS, chooseLegacy, legacyStatus, freshState, migrateSave, move, nearbyNpc, serializeSave, talk, tick, type GameState, type Persona } from '@dunya/game-core';
 import { PANTRY_MISSION } from '@dunya/content';
 import * as THREE from 'three';
 
@@ -131,19 +131,13 @@ export function WorldPreview() {
   const respond = (choiceId: string) => {
     if (!dialogueNpc) return;
     const choice = chooseDialogue(dialogueNpc, choiceId);
-    const npcId = dialogueNpc;
-    if (choice.effect !== 'none') setGame(previous => {
-      const talked = talk(previous, npcId);
-      if (choice.effect === 'start_pantry' && npcId === 'sara') return talked;
-      if (choice.effect === 'deliver_pantry' && npcId === 'amina') return deliverPantry(talked);
-      if (['hear_omar','verify_clip','share_rumor','correct_rumor'].includes(choice.effect)) return recordEvidence(talked, choice.effect as 'hear_omar' | 'verify_clip' | 'share_rumor' | 'correct_rumor');
-      return talked;
-    });
+    const outcome = applyDialogueEffect(gameRef.current, dialogueNpc, choice.effect);
+    if (outcome.applied) {
+      gameRef.current = outcome.state;
+      setGame(outcome.state);
+    }
     setDialogue('');
-    const requiresPantry = ['hear_omar','verify_clip','share_rumor','correct_rumor'].includes(choice.effect) && gameRef.current.quest !== 'complete';
-    const requiresOmar = choice.effect === 'verify_clip' && !gameRef.current.inventory.evidence_hear_omar;
-    const requiresPost = choice.effect === 'correct_rumor' && !gameRef.current.inventory.evidence_share_rumor;
-    setConversationResult(requiresPantry ? 'Finish the pantry handoff before starting the video investigation.' : requiresOmar ? 'Hear Omar first so the clip can be checked against his account.' : requiresPost ? 'There is no unverified post to correct yet.' : choice.reply);
+    setConversationResult(outcome.applied && choice.reply ? choice.reply : outcome.reason);
     setDialogueNpc(null);
   };
   const save = useCallback((): boolean => { try { localStorage.setItem(SAVE_KEY, serializeSave(gameRef.current)); setDialogue('Saved locally on this device.'); return true; } catch { setDialogue('Save failed: storage unavailable.'); return false; } }, []);
