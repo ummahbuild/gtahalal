@@ -1,0 +1,57 @@
+name: "Qur'an / Sunnah correction"
+description: "Report a precise source, translation, grading, context or fiqh concern without needing code."
+title: "[Islamic review] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: "Research leads are not approved rulings. Avoid copying copyrighted translations. Never include private information."
+  - type: input
+    id: location
+    attributes:
+      label: File path / mission ID / claim ID
+      placeholder: "docs/... or mission-id and claim-id"
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Exact current wording and why it may be incorrect
+      description: "Quote only the necessary excerpt."
+    validations:
+      required: true
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Type of concern
+      options: ["Wrong Qur'an reference", "Hadith reference or grading", "Translation or edition", "Missing context / tafsir", "Fiqh disagreement", "Misleading religious gameplay", "Copyright or licensing", "Other"]
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Canonical references and context
+      description: "Quran.com / Sunnah.com URLs, exact reference, relevant variants, interpretation and uncertainty."
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested correction and player-facing alternative
+      description: "Describe the narrowest safe change. This is not approval."
+    validations:
+      required: true
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Release impact
+      options: ["Research / clarification", "Potentially misleading live content", "Request temporary removal pending qualified review"]
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Review gate
+      options:
+        - label: "I understand qualified scholarly review and other release gates remain required."
+          required: true
