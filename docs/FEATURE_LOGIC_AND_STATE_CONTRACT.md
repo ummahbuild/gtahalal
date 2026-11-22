@@ -96,3 +96,6 @@ Every PR changing story logic updates this file, [Feature Registry](FEATURES_AND
 
 ## Immediate save synchronization (#80)
 `WorldPreview` now routes game-state mutations through `commitGame`, which updates `gameRef.current` before scheduling React state. Save/autosave serialize that same ref, including immediately after NPC, route, procurement and legacy decisions. The change also covers persona reset, Load and movement ticks. Source-contract tests added; browser/save-reload and clean build still need verification. Separate founder and Miami minigame localStorage keys remain independent by design.
+
+## Keyboard dialog focus improvement (#83)
+`useDialogFocus` now handles initial focus, Tab/Shift+Tab containment, Escape dismissal and focus restoration for founder, career, pantry planning, legacy and NPC overlays. `WorldPreview` also blocks background E-key interactions while overlays are active. These are source-level improvements; manual keyboard, VoiceOver/NVDA, touch and browser verification remain required before marking accessibility complete.
