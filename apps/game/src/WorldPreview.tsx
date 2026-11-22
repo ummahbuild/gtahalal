@@ -4,7 +4,7 @@ import { dialogueFor, chooseDialogue } from './npcDialogues.mjs';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows } from '@react-three/drei';
-import { NPCS, OBSTACLES, deliverPantry, freshState, migrateSave, move, nearbyNpc, serializeSave, talk, tick, type GameState, type Persona } from '@dunya/game-core';
+import { NPCS, OBSTACLES, deliverPantry, evidenceStatus, recordEvidence, freshState, migrateSave, move, nearbyNpc, serializeSave, talk, tick, type GameState, type Persona } from '@dunya/game-core';
 import { PANTRY_MISSION } from '@dunya/content';
 import * as THREE from 'three';
 
@@ -60,7 +60,7 @@ function NeighborhoodScene({ game, quality, reducedMotion, onTick }: { game: Gam
     {Array.from({ length: 16 }, (_, i) => <Building key={i} x={(i % 8 - 3.5) * 5.4} z={i < 8 ? -10 : 11} height={3.4 + (i * 7 % 5) * 1.35} tone={['#c4b7a1','#d8c9b0','#b7b8ad','#a9b3ad'][i % 4]} label={i === 3 ? 'Pantry' : undefined} />)}
     {OBSTACLES.map(o => <mesh key={o.id} position={[o.x,0.25,o.z]} castShadow receiveShadow><boxGeometry args={[o.halfWidth*2,0.5,o.halfDepth*2]} /><meshStandardMaterial color="#56766a" roughness={0.95} /></mesh>)}
     {NPCS.map((npc, i) => <group key={npc.id} position={[npc.x, 0, npc.z]}>
-      <mesh position={[0, 0.9, 0]} castShadow><capsuleGeometry args={[0.2, 1, 6, 10]} /><meshStandardMaterial color={['#b58367','#5d7c7b','#9c8168'][i]} /></mesh>
+      <mesh position={[0, 0.9, 0]} castShadow><capsuleGeometry args={[0.2, 1, 6, 10]} /><meshStandardMaterial color={['#b58367','#5d7c7b','#9c8168','#6c728e','#947b56'][i]} /></mesh>
       <mesh position={[0, 1.7, 0]} castShadow><sphereGeometry args={[0.21, 12, 8]} /><meshStandardMaterial color="#936f57" /></mesh>
     </group>)}
     <Avatar persona={game.persona} position={game.position} />
@@ -132,10 +132,14 @@ export function WorldPreview() {
       const talked = talk(previous, npcId);
       if (choice.effect === 'start_pantry' && npcId === 'sara') return talked;
       if (choice.effect === 'deliver_pantry' && npcId === 'amina') return deliverPantry(talked);
+      if (['hear_omar','verify_clip','share_rumor','correct_rumor'].includes(choice.effect)) return recordEvidence(talked, choice.effect as 'hear_omar' | 'verify_clip' | 'share_rumor' | 'correct_rumor');
       return talked;
     });
     setDialogue('');
-    setConversationResult(choice.reply);
+    const requiresPantry = ['hear_omar','verify_clip','share_rumor','correct_rumor'].includes(choice.effect) && gameRef.current.quest !== 'complete';
+    const requiresOmar = choice.effect === 'verify_clip' && !gameRef.current.inventory.evidence_hear_omar;
+    const requiresPost = choice.effect === 'correct_rumor' && !gameRef.current.inventory.evidence_share_rumor;
+    setConversationResult(requiresPantry ? 'Finish the pantry handoff before starting the video investigation.' : requiresOmar ? 'Hear Omar first so the clip can be checked against his account.' : requiresPost ? 'There is no unverified post to correct yet.' : choice.reply);
     setDialogueNpc(null);
   };
   const save = useCallback((): boolean => { try { localStorage.setItem(SAVE_KEY, serializeSave(gameRef.current)); setDialogue('Saved locally on this device.'); return true; } catch { setDialogue('Save failed: storage unavailable.'); return false; } }, []);
@@ -180,13 +184,16 @@ export function WorldPreview() {
         {NPCS.map(n => <span key={n.id} title={n.name} style={{position:'absolute',left:((n.x+21)/42*100)+'%',top:((n.z+7)/14*100)+'%',color:'#fff',fontWeight:700}}>●</span>)}
         <span title="Your character" style={{position:'absolute',left:((game.position.x+21)/42*100)+'%',top:((game.position.z+7)/14*100)+'%',color:'#ffdb73',fontWeight:900}}>◆</span>
       </div>
-      <p style={{fontSize:12}}>◆ You · ● Sara, Bilal, Amina</p>
+      <p style={{fontSize:12}}>◆ You · ● Sara, Bilal, Amina, Maya, Omar</p>
       <button style={buttonStyle} onClick={() => setShowMap(false)}>Close map</button>
     </section>}
     {showJournal && <section aria-label="Quest journal" style={{position:'absolute',top:175,right:12,zIndex:4,background:'rgba(11,30,38,.96)',padding:16,borderRadius:10,width:'min(290px,calc(100vw - 24px))'}}>
       <h2 style={{margin:'0 0 8px',fontSize:17}}>Your journal</h2>
       <strong>First Neighbors</strong>
       <p>{game.quest==='available'?'Meet Sara near the plaza and decide whether to help.':game.quest==='active'?'Find Amina near the pantry and confirm the handoff.':'The pantry handoff is complete. You can continue exploring.'}</p>
+      <h3 style={{fontSize:14}}>The Cropped Video</h3>
+      <p>{evidenceStatus(game)}</p>
+      <p style={{fontSize:12}}>Evidence: {game.inventory.evidence_hear_omar ? 'Omar heard · ' : ''}{game.inventory.evidence_verify_clip ? 'Clip checked · ' : ''}{game.inventory.evidence_share_rumor ? 'Unverified post · ' : ''}{game.inventory.evidence_correct_rumor ? 'Correction issued' : ''}</p>
       <p style={{fontSize:12}}>Content status: draft · Fictional community story</p>
       <button style={buttonStyle} onClick={() => setShowJournal(false)}>Close journal</button>
     </section>}
