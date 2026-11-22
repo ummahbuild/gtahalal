@@ -13,3 +13,6 @@ Canonical organization repository: https://github.com/ummahbuild/gtahalal. Start
 8. Prefer TypeScript strict, small packages, deterministic quest logic, versioned schemas and accessible interfaces.
 9. Run `pnpm lint && pnpm typecheck && pnpm test && pnpm build` when available; disclose commands not run.
 10. No direct production deployment or merge without checks and review.
+
+## Studio-role audit skills
+Use [Game Studio Audit Playbook](docs/GAME_STUDIO_AUDIT_PLAYBOOK.md) and the ten `.claude/skills/dunya-*/SKILL.md` roles for creative direction, narrative, gameplay, art, UX, QA, Islamic review, simulation, audio/localization and humanitarian safety. Search existing issues first and label source-level hypotheses honestly.
