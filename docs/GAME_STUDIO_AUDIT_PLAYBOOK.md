@@ -56,3 +56,10 @@ Source inspected: `packages/game-core/src/index.ts`, `apps/game/src/WorldPreview
 
 ## Non-goals
 Do not create a giant automatic issue flood, assume every authored mission is playable, claim real-world crisis accuracy from fictional scenarios, or approve religious instructions based on a working URL alone.
+
+## Filed issues and existing backlog
+- [#80](https://github.com/ummahbuild/gtahalal/issues/80) immediate-save race risk
+- [#81](https://github.com/ummahbuild/gtahalal/issues/81) NPC effect/result divergence
+- [#82](https://github.com/ummahbuild/gtahalal/issues/82) founder metrics derived-state integrity
+- [#83](https://github.com/ummahbuild/gtahalal/issues/83) keyboard focus and overlay accessibility
+- Existing [#1](https://github.com/ummahbuild/gtahalal/issues/1) and [#26](https://github.com/ummahbuild/gtahalal/issues/26) for lockfile/build; [#58](https://github.com/ummahbuild/gtahalal/issues/58), [#60](https://github.com/ummahbuild/gtahalal/issues/60), [#61](https://github.com/ummahbuild/gtahalal/issues/61) for camera/graphics/mobile. Avoid duplicates.
