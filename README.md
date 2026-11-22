@@ -10,6 +10,10 @@
 
 **Agent-ready entrypoint:** [One URL → Contributor Agent](docs/AGENT_ONE_URL_START.md). Paste `https://github.com/ummahbuild/gtahalal` and the copyable task there into a coding agent with a terminal and GitHub access. The agent should clone, inspect requirements, run the [offline bootstrap](scripts/agent_bootstrap.py), reproduce the build, select an existing issue and submit a tested improvement. [Reproducibility acceptance](docs/AGENT_REPRODUCIBILITY_ACCEPTANCE.md) tracks remaining blockers. **The repository is not yet verified as a clean, reproducible build; the lockfile is missing.**
 
+## Feature and logic source of truth
+
+All feature ideas, authored campaigns and committed gameplay should be indexed in the [Feature and Ideation Registry](docs/FEATURES_AND_IDEAS_REGISTRY.md), with precise transitions, persistence, review gates and outstanding defects in the [Feature Logic and State Contract](docs/FEATURE_LOGIC_AND_STATE_CONTRACT.md). **Documented ≠ implemented ≠ tested ≠ deployed.** New work must update both documents and the relevant story/requirements files.
+
 ## Contribute to Dunya
 
 Developers, storytellers, Qur'an/Sunnah researchers, qualified Islamic reviewers, regional experts, accessibility contributors, artists and engineers can contribute using the [Contributor Guide](CONTRIBUTING.md) and [GitHub issue forms](.github/ISSUE_TEMPLATE/config.yml). Corrections to Islamic claims do **not** require coding. All religious interpretations remain draft until qualified review; no gameplay piety scoring or automated fatwas.
