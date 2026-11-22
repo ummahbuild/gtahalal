@@ -65,3 +65,9 @@ Status: engineering documentation, **not proof of verified runtime**. Applies to
 
 ## Review and delivery
 Every PR changing story logic updates this file, [Feature Registry](FEATURES_AND_IDEAS_REGISTRY.md), the relevant story document, machine-readable content, unit tests and user-visible copy. Run local tests and browser QA, then separately verify deployment SHA. Scholar, humanitarian, legal, cultural and licensing approval cannot be replaced by code review.
+
+## Cropped-video quest state (new)
+- Five positioned NPCs: Sara, Amina, Bilal, Maya and Omar. Maya/Omar have distinct dialogue choices and conditional evidence effects.
+- Evidence is stored as idempotent numeric inventory flags in `dunya-save-v1`, not a separate real-world claim database. `recordEvidence` gates actions on completed pantry quest; `verify_clip` requires `hear_omar`; `correct_rumor` requires `share_rumor`.
+- `evidenceStatus` renders journal progress. **Unverified:** full save/load, browser focus, and accessibility tests. The conversation result panel may require further eligibility reconciliation.
+
