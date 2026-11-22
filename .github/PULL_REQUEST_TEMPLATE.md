@@ -1,3 +1,19 @@
+## Contribution lane
+- [ ] Gameplay code / bug
+- [ ] Story / mission / dialogue
+- [ ] Qur'an or Sunnah correction (scholar review required)
+- [ ] Humanitarian / regional review
+- [ ] Accessibility / localization
+- [ ] Art / infrastructure engineering
+
+## Religious and humanitarian source review (if applicable)
+- Claim ID, mission ID, exact current and proposed text:
+- Quran.com / Sunnah.com canonical references, context and translation/asset rights:
+- Hadith grading, variants, jurisprudence differences and qualified reviewer status:
+- Regional sources, dated evidence, competing accounts and local review:
+- [ ] Content stays draft/unpublished until all approvals; no automated fatwa
+- [ ] Changed approved claim resets dependent approvals
+
 ## Summary and player value
 <!-- Explain the actual change, not just a plan. -->
 
