@@ -6,6 +6,10 @@
 > **Development status (2026-11-22):** PRs [#62](https://github.com/ummahbuild/gtahalal/pull/62), [#65](https://github.com/ummahbuild/gtahalal/pull/65), [#66](https://github.com/ummahbuild/gtahalal/pull/66), and [#67](https://github.com/ummahbuild/gtahalal/pull/67) were merged to `main` at the owner's explicit request **without verified build or browser tests**. This is source deployment to the production branch, **not proof of a working live release**. `pnpm-lock.yaml` remains missing; clean install, CI, asset and religious review remain outstanding.
 
 
+## Give the GitHub URL to your coding agent
+
+**Agent-ready entrypoint:** [One URL → Contributor Agent](docs/AGENT_ONE_URL_START.md). Paste `https://github.com/ummahbuild/gtahalal` and the copyable task there into a coding agent with a terminal and GitHub access. The agent should clone, inspect requirements, run the [offline bootstrap](scripts/agent_bootstrap.py), reproduce the build, select an existing issue and submit a tested improvement. [Reproducibility acceptance](docs/AGENT_REPRODUCIBILITY_ACCEPTANCE.md) tracks remaining blockers. **The repository is not yet verified as a clean, reproducible build; the lockfile is missing.**
+
 ## Contribute to Dunya
 
 Developers, storytellers, Qur'an/Sunnah researchers, qualified Islamic reviewers, regional experts, accessibility contributors, artists and engineers can contribute using the [Contributor Guide](CONTRIBUTING.md) and [GitHub issue forms](.github/ISSUE_TEMPLATE/config.yml). Corrections to Islamic claims do **not** require coding. All religious interpretations remain draft until qualified review; no gameplay piety scoring or automated fatwas.
