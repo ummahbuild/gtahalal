@@ -50,37 +50,40 @@ export const STORIES = Object.freeze([
 
 export const INITIAL_METRICS = Object.freeze({ trust: 0, access: 0, runway: 5 });
 
+// Metrics are derived from canonical story order, never trusted from localStorage.
+// Clamping happens once after summing all selected effects, so decision order
+// cannot change the result. A future schema change needs explicit migration.
+function deriveMetrics(decisions) {
+  const totals = { ...INITIAL_METRICS };
+  for (const story of STORIES) {
+    const choice = story.choices.find(item => item.id === decisions[story.id]);
+    if (!choice) continue;
+    for (const key of Object.keys(totals)) totals[key] += choice.effects[key];
+  }
+  return Object.fromEntries(Object.entries(totals).map(([key, value]) => [
+    key, Math.max(0, Math.min(10, value)),
+  ]));
+}
+
+export function normalizeProgress(raw) {
+  const decisions = {};
+  if (raw && typeof raw === 'object' && raw.version === 1 && raw.decisions && typeof raw.decisions === 'object' && !Array.isArray(raw.decisions)) {
+    for (const story of STORIES) {
+      const choiceId = Object.prototype.hasOwnProperty.call(raw.decisions, story.id) ? raw.decisions[story.id] : undefined;
+      if (story.choices.some(choice => choice.id === choiceId)) decisions[story.id] = choiceId;
+    }
+  }
+  return { version: 1, decisions, metrics: deriveMetrics(decisions) };
+}
+
 export function applyDecision(progress, storyId, choiceId) {
   const story = STORIES.find(item => item.id === storyId);
   const choice = story?.choices.find(item => item.id === choiceId);
   if (!choice) throw new RangeError('Unknown story or decision');
   const previous = normalizeProgress(progress);
   if (previous.decisions[storyId]) return previous;
-  const metrics = Object.fromEntries(Object.keys(INITIAL_METRICS).map(key => [
-    key, Math.max(0, Math.min(10, previous.metrics[key] + choice.effects[key])),
-  ]));
-  return {
+  return normalizeProgress({
     version: 1,
     decisions: { ...previous.decisions, [storyId]: choiceId },
-    metrics,
-  };
+  });
 }
-
-export function normalizeProgress(raw) {
-  const decisions = {};
-  if (raw && typeof raw === 'object' && raw.version === 1 && raw.decisions && typeof raw.decisions === 'object') {
-    for (const story of STORIES) {
-      const choiceId = raw.decisions[story.id];
-      if (story.choices.some(choice => choice.id === choiceId)) decisions[story.id] = choiceId;
-    }
-  }
-  const metrics = { ...INITIAL_METRICS };
-  if (raw && typeof raw === 'object' && raw.version === 1 && raw.metrics && typeof raw.metrics === 'object') {
-    for (const key of Object.keys(metrics)) {
-      const value = raw.metrics[key];
-      if (Number.isFinite(value)) metrics[key] = Math.max(0, Math.min(10, value));
-    }
-  }
-  return { version: 1, decisions, metrics };
-}
-
