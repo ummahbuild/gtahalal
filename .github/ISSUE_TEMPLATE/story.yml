@@ -1,0 +1,40 @@
+name: "Story, quest or mission"
+description: "Propose an original NPC arc, playable mission, branch or repair path."
+title: "[Story] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: existing
+    attributes:
+      label: Existing issue / chapter / mission ID
+      description: "Search first; link related work."
+    validations:
+      required: true
+  - type: textarea
+    id: pitch
+    attributes:
+      label: Player-facing premise and setting
+      description: "Original characters, player agency, stakes and local context."
+    validations:
+      required: true
+  - type: textarea
+    id: beats
+    attributes:
+      label: Scenes, interactions and three meaningful peaceful choices
+      description: "Include triggers, prerequisites, dialogue and a nonpunitive repair path."
+    validations:
+      required: true
+  - type: textarea
+    id: outcomes
+    attributes:
+      label: Persistent consequences and accessibility alternative
+      description: "No piety score or real-world victim score."
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources, content warnings and required reviewers
+      description: "Mark unreviewed religious, humanitarian, legal or cultural claims pending."
+    validations:
+      required: true
