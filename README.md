@@ -26,6 +26,10 @@ The [Humanitarian World Campaign](docs/HUMANITARIAN_WORLD_CRISIS_CAMPAIGN.md) do
 
 The [Debt Empire](docs/DEBT_EMPIRE_RIBA_CAMPAIGN.md) adds **25 draft financial ethics missions**; the [Environment, Gambling Harm and Night Economy](docs/ENVIRONMENT_GAMBLING_ALCOHOL_CAMPAIGN.md) adds **15 draft missions**. All require specialist content review, implementation and testing. These stories are fictional, not allegations against real companies or governments, and no religious interpretation is automatically approved.
 
+## Founder-perspective story audits
+
+The [Founder Perspective Industry Story Audit](docs/FOUNDER_PERSPECTIVE_INDUSTRY_STORY_AUDIT.md) adds fifteen distinct fictional founder dilemmas across media, finance, food, privacy, healthcare, housing, education, humanitarian action, environment and other verticals. It adapts high-level ethical frameworks from *Perspectives of Muslim Founders* and ummah.build's editorial themes without copying unpublished text. These are draft story briefs, not playable or religiously approved content.
+
 ## The story: A world worth building
 
 Choose **Ahmed** or **Fatimah** and begin in *Bayhaven*, a fictional coastal neighborhood. A community pantry needs support, neighbors disagree about limited resources, an online video tells only part of the story, and a blocked entrance exposes a real accessibility problem. Help Sara, Amina, Bilal, Maya, and Omar uncover what is happening, correct mistakes, organize fair deliveries, and leave a system that works without constant intervention.
