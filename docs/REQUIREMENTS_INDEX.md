@@ -1,6 +1,11 @@
 # Dunya — public requirements index
 Status: index of existing source documents and draft PR work; documentation is not implementation or religious approval.
 
+## Canonical feature and gameplay logic
+- [Feature and Ideation Registry](FEATURES_AND_IDEAS_REGISTRY.md) — every major area, status, code, requirements and release blockers.
+- [Feature Logic and State Contract](FEATURE_LOGIC_AND_STATE_CONTRACT.md) — current state transitions, saves, founder decisions, defects and future engine contract.
+- New feature/mission PRs must update these and their specific narrative or engineering requirements. **Source implemented is not verified or deployed.**
+
 ## Canonical mission audit
 - [Mission audit and issue map](MISSION_AUDIT_AND_ISSUE_MAP_2026-11-22.md) — chapter/arc coverage, issue traceability, unmerged PR boundaries and release blockers. All mission authors should consult this before creating duplicate requirements or issues.
 
