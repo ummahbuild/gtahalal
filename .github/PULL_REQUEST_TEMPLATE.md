@@ -20,6 +20,12 @@
 ## Existing issues
 <!-- Link existing issues; avoid duplicate issues. -->
 
+## Feature and logic documentation
+- [ ] Updated `docs/FEATURES_AND_IDEAS_REGISTRY.md` with accurate status, code and requirements links (or explained why not applicable)
+- [ ] Updated `docs/FEATURE_LOGIC_AND_STATE_CONTRACT.md` for changed state, decisions, saves, unlocks or review gates (or explained why not applicable)
+- [ ] Updated the relevant narrative, engineering and requirements documents
+- [ ] Distinguished idea / specified / source implemented / verified / release approved / live deployed
+
 ## Scope and files changed
 <!-- Apps, packages, content, assets, migrations. -->
 
