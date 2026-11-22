@@ -24,6 +24,12 @@ Status: engineering documentation, **not proof of verified runtime**. Applies to
 8. Current localStorage failure handling prevents claiming a successful save, but automated and browser failure tests are needed.
 9. Tests are authored in `apps/game/tests/founder-stories.test.mjs`, not verified as executed in a clean install.
 
+## NPC dialogue source implementation
+- `dialogueFor(npcId)` returns the authored scene or null; `chooseDialogue(npcId,choiceId)` rejects unknown IDs.
+- Sara can start pantry quest; Amina can confirm handoff when active and nearby; Bilal opens a route discussion only. Decline is no-op.
+- Dialogue is not yet a full persistent branching narrative. The response panel is transient; existing `npcSpoken` and quest persist. See [Bayhaven NPC Dialogue Logic](BAYHAVEN_NPC_DIALOGUE_LOGIC.md).
+- Tests authored at `apps/game/tests/npc-dialogues.test.mjs`; clean install and browser verification remain pending.
+
 ## Required next-generation story engine
 **State model:** `StoryStateV2 = {version,saveSlotId,completedMissions,activeMission,sceneId,choiceHistory,evidenceLedger,institutionMetrics,relationshipFlags,reviewedContentVersions}`. Do not include faith, prayer, conversion, survivor identities, medical data or real financial records.
 
