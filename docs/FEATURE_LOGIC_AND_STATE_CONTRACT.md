@@ -71,3 +71,10 @@ Every PR changing story logic updates this file, [Feature Registry](FEATURES_AND
 - Evidence is stored as idempotent numeric inventory flags in `dunya-save-v1`, not a separate real-world claim database. `recordEvidence` gates actions on completed pantry quest; `verify_clip` requires `hear_omar`; `correct_rumor` requires `share_rumor`.
 - `evidenceStatus` renders journal progress. **Unverified:** full save/load, browser focus, and accessibility tests. The conversation result panel may require further eligibility reconciliation.
 
+
+## Route and procurement logic v1
+- `planPantryRoute` checks option ID, completed pantry quest, prior Bilal conversation, and `route_planned` idempotence. Stores `route_planned` and `route_<id>` in v1 inventory.
+- `planPantryProcurement` checks option ID, completed quest, route flag, `evidence_hear_omar`, and `procurement_planned` idempotence. Stores `procurement_planned` and `procurement_<id>`.
+- `pantryPlanStatus` exposes the next prerequisite in the journal and planning overlay. Route/supplier costs are **illustrative ratings**, not consumed game currency or measured outcomes. The world pauses while planning is open; closing returns to paused gameplay.
+- Still missing: live map routing, inventory-count reconciliation, vendor quotes, budget conservation, repair/reversal and browser accessibility evidence. Source-contract tests authored but not executed.
+
