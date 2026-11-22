@@ -31,6 +31,9 @@ Status: canonical **navigation and state ledger** as of 2026-11-22. This documen
 | Contributor workflow | Source implemented (GitHub templates) | code, story, Islamic correction, regional review, accessibility, assets | [Contributing](../CONTRIBUTING.md) | `.github/ISSUE_TEMPLATE/` |
 | Public web and authoring studio | Scaffold / unverified | landing page and authoring app | [Architecture](ADR-001-THREE_APP_ARCHITECTURE.md) | `apps/web/`, `apps/studio/` |
 
+## Bayhaven NPC dialogue update
+- **Source implemented / unverified:** Three-choice conversations for Sara, Amina and Bilal in `apps/game/src/npcDialogues.mjs` and `WorldPreview.tsx`; [NPC logic and limitations](BAYHAVEN_NPC_DIALOGUE_LOGIC.md). Storyline routes, evidence journal, Maya/Omar scenes and persisted choice history remain specified, not playable.
+
 ## Current release blockers
 - `pnpm-lock.yaml` absent in the last inspection; no confirmed frozen install, clean TypeScript compilation, complete test suite or browser QA.
 - No verified public gameplay deployment.
