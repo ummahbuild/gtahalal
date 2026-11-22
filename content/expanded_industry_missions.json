@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "release_status": "draft",
+  "fictional": true,
+  "chapters": [
+    {
+      "id": "green-mirage",
+      "title": "The Green Mirage",
+      "company": "VerdantWorks",
+      "missions": [
+        {
+          "mission_id": "green-mirage-01",
+          "title": "The River That Changed Color",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [],
+          "issue_numbers": [
+            2,
+            5,
+            14,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "green-mirage-02",
+          "title": "The Carbon Receipt",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "green-mirage-01"
+          ],
+          "issue_numbers": [
+            2,
+            5,
+            14,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "green-mirage-03",
+          "title": "The Mountain of Returns",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "green-mirage-02"
+          ],
+          "issue_numbers": [
+            2,
+            5,
+            14,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "green-mirage-04",
+          "title": "Build the Watershed",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "green-mirage-03"
+          ],
+          "issue_numbers": [
+            2,
+            5,
+            14,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "green-mirage-05",
+          "title": "The Year of the Flood",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "green-mirage-04"
+          ],
+          "issue_numbers": [
+            2,
+            5,
+            14,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        }
+      ],
+      "issue_numbers": [
+        2,
+        5,
+        14,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "house-always-wins",
+      "title": "The House Always Wins",
+      "company": "LuckyOrbit",
+      "missions": [
+        {
+          "mission_id": "house-always-wins-01",
+          "title": "The Match Without the Match",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "house-always-wins-02",
+          "title": "Read the Small Print",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "house-always-wins-01"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "house-always-wins-03",
+          "title": "A Friend Needs Space",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "house-always-wins-02"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "house-always-wins-04",
+          "title": "The Exit That Works",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "house-always-wins-03"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "house-always-wins-05",
+          "title": "The Community League",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "house-always-wins-04"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        }
+      ],
+      "issue_numbers": [
+        14,
+        21,
+        35,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "night-economy",
+      "title": "The Night Economy",
+      "company": "AmberGlow",
+      "missions": [
+        {
+          "mission_id": "night-economy-01",
+          "title": "After Closing",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "night-economy-02",
+          "title": "The Sponsored Festival",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "night-economy-01"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "night-economy-03",
+          "title": "The Way Home",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "night-economy-02"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "night-economy-04",
+          "title": "The Worker Behind the Counter",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "night-economy-03"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        },
+        {
+          "mission_id": "night-economy-05",
+          "title": "A Different Kind of Night",
+          "review_status": "draft",
+          "playable": false,
+          "requires_legal_review": true,
+          "requires_safety_review": true,
+          "source_claim_ids": [],
+          "prerequisites": [
+            "night-economy-04"
+          ],
+          "issue_numbers": [
+            14,
+            21,
+            35,
+            36,
+            38,
+            39,
+            49,
+            53
+          ],
+          "choices_required": 3,
+          "repair_path_required": true
+        }
+      ],
+      "issue_numbers": [
+        14,
+        21,
+        35,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    }
+  ]
+}
