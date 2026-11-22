@@ -90,9 +90,15 @@ export function WorldPreview() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const pressed = useRef(new Set<string>());
   const gameRef = useRef(game);
-    useEffect(() => { gameRef.current = game; }, [game]);
+  // Commit to the authoritative ref synchronously so Save immediately after a
+  // decision reads the latest state, not the previous React render.
+  const commitGame = useCallback((update: GameState | ((previous: GameState) => GameState)) => {
+    const next = typeof update === 'function' ? update(gameRef.current) : update;
+    gameRef.current = next;
+    setGame(next);
+  }, []);
   useEffect(() => {
-    setGame(loadGame()); setLoaded(true);
+    commitGame(loadGame()); setLoaded(true);
     const down = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
       if (target && (['INPUT','TEXTAREA','SELECT'].includes(target.tagName) || target.isContentEditable)) return;
@@ -126,15 +132,15 @@ export function WorldPreview() {
     let dz = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'));
     const pad = navigator.getGamepads?.()[0];
     if (pad) { dx += Math.abs(pad.axes[0] ?? 0) > 0.18 ? pad.axes[0] : 0; dz += Math.abs(pad.axes[1] ?? 0) > 0.18 ? pad.axes[1] : 0; }
-    setGame(s => tick(move(s, dx, dz, dt), dt));
-  }, [paused, dialogueNpc, showMap, showJournal, showFounderStories, showPantryPlan, showLegacy, showCommunity]);
+    commitGame(s => tick(move(s, dx, dz, dt), dt));
+  }, [paused, dialogueNpc, showMap, showJournal, showFounderStories, showPantryPlan, showLegacy, showCommunity, commitGame]);
   const respond = (choiceId: string) => {
     if (!dialogueNpc) return;
     const choice = chooseDialogue(dialogueNpc, choiceId);
     const outcome = applyDialogueEffect(gameRef.current, dialogueNpc, choice.effect);
     if (outcome.applied) {
       gameRef.current = outcome.state;
-      setGame(outcome.state);
+      commitGame(outcome.state);
     }
     setDialogue('');
     setConversationResult(outcome.applied && choice.reply ? choice.reply : outcome.reason);
@@ -156,11 +162,11 @@ export function WorldPreview() {
       <strong style={{ fontSize:21, letterSpacing:3 }}>DUNYA</strong>
       <p style={{ fontSize:12, margin:'6px 0' }}>Bayhaven prototype · {clock} fictional time · {game.coins} fictional coins</p>
       <div style={{ display:'flex', gap:6, flexWrap:'wrap' }}>
-        <button style={buttonStyle} onClick={() => setGame(freshState('Ahmed'))} aria-pressed={game.persona==='Ahmed'}>Ahmed</button>
-        <button style={buttonStyle} onClick={() => setGame(freshState('Fatimah'))} aria-pressed={game.persona==='Fatimah'}>Fatimah</button>
+        <button style={buttonStyle} onClick={() => commitGame(freshState('Ahmed'))} aria-pressed={game.persona==='Ahmed'}>Ahmed</button>
+        <button style={buttonStyle} onClick={() => commitGame(freshState('Fatimah'))} aria-pressed={game.persona==='Fatimah'}>Fatimah</button>
         <button style={buttonStyle} onClick={() => setPaused(p => !p)}>{paused ? 'Play' : 'Pause'}</button>
         <button style={buttonStyle} onClick={save}>Save</button>
-        <button style={buttonStyle} onClick={() => setGame(loadGame())}>Load</button>
+        <button style={buttonStyle} onClick={() => commitGame(loadGame())}>Load</button>
         <button style={buttonStyle} onClick={() => setQuality(q => q==='low'?'high':'low')}>Graphics: {quality}</button>
         <button style={buttonStyle} onClick={() => setShowMap(v => !v)} aria-expanded={showMap}>Map</button>
         <button style={buttonStyle} onClick={() => setShowJournal(v => !v)} aria-expanded={showJournal}>Journal</button>
@@ -179,7 +185,7 @@ export function WorldPreview() {
         <h2>Build Something That Lasts</h2>
         <p>Sara: One good day helped. What happens next week when we are all busy?</p>
         <p>{legacyStatus(game)}</p>
-        {LEGACY_OPTIONS.map(option => <button key={option.id} style={buttonStyle} disabled={!!game.inventory.legacy_chosen || !game.inventory.route_planned || !game.inventory.procurement_planned} onClick={()=>setGame(s=>chooseLegacy(s,option.id))}>{option.title} · resilience {option.resilience}/3 · inclusion {option.inclusion}/3 · upkeep {option.upkeep}/3</button>)}
+        {LEGACY_OPTIONS.map(option => <button key={option.id} style={buttonStyle} disabled={!!game.inventory.legacy_chosen || !game.inventory.route_planned || !game.inventory.procurement_planned} onClick={()=>commitGame(s=>chooseLegacy(s,option.id))}>{option.title} · resilience {option.resilience}/3 · inclusion {option.inclusion}/3 · upkeep {option.upkeep}/3</button>)}
         <p style={{fontSize:12}}>Fictional institutional planning. Ratings are illustrative; there are no real funds, contracts, or religious judgments.</p>
         <button style={buttonStyle} onClick={()=>setShowLegacy(false)}>Return to Bayhaven</button>
       </div>
@@ -190,9 +196,9 @@ export function WorldPreview() {
         <h2>Pantry · The Curb and the Contract</h2>
         <p>{pantryPlanStatus(game)}</p>
         <h3>Choose an accessible delivery route</h3>
-        {ROUTE_OPTIONS.map(option => <button key={option.id} style={buttonStyle} disabled={!!game.inventory.route_planned || game.quest!=='complete' || !game.npcSpoken.includes('bilal')} onClick={() => setGame(s=>planPantryRoute(s,option.id))}>{option.title} · access {option.access}/3 · reliability {option.reliability}/3 · cost {option.cost}/3</button>)}
+        {ROUTE_OPTIONS.map(option => <button key={option.id} style={buttonStyle} disabled={!!game.inventory.route_planned || game.quest!=='complete' || !game.npcSpoken.includes('bilal')} onClick={() => commitGame(s=>planPantryRoute(s,option.id))}>{option.title} · access {option.access}/3 · reliability {option.reliability}/3 · cost {option.cost}/3</button>)}
         <h3>Choose a fair supply arrangement</h3>
-        {PROCUREMENT_OPTIONS.map(option => <button key={option.id} style={buttonStyle} disabled={!!game.inventory.procurement_planned || !game.inventory.route_planned || !game.inventory.evidence_hear_omar} onClick={() => setGame(s=>planPantryProcurement(s,option.id))}>{option.title} · access {option.access}/3 · reliability {option.reliability}/3 · cost {option.cost}/3</button>)}
+        {PROCUREMENT_OPTIONS.map(option => <button key={option.id} style={buttonStyle} disabled={!!game.inventory.procurement_planned || !game.inventory.route_planned || !game.inventory.evidence_hear_omar} onClick={() => commitGame(s=>planPantryProcurement(s,option.id))}>{option.title} · access {option.access}/3 · reliability {option.reliability}/3 · cost {option.cost}/3</button>)}
         <p style={{fontSize:12}}>Fictional educational choices only. These scores illustrate trade-offs, not real engineering, procurement or safety approval.</p>
         <button style={buttonStyle} onClick={() => setShowPantryPlan(false)}>Return to Bayhaven</button>
       </div>
