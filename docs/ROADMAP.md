@@ -1,6 +1,6 @@
 # Development plan
 
-**Current reality:** `main` is an early scaffold. [Draft PR #62](https://github.com/ummahbuild/gtahalal/pull/62) contains an unverified interactive starter slice; [requirements index](REQUIREMENTS_INDEX.md) distinguishes authored documentation from implemented behavior. Do not mark roadmap tasks done until they pass verification.
+**Current reality:** `main` contains the merged early Bayhaven interactive prototype and three founder decision cards (PRs #62 and #74), but clean build and browser QA remain unverified. [Feature Registry](FEATURES_AND_IDEAS_REGISTRY.md) and [Logic Contract](FEATURE_LOGIC_AND_STATE_CONTRACT.md) distinguish implemented source from the much larger drafted mission backlog. Do not mark roadmap tasks done until verified.
 
 
 ## Phase 0 — scaffold
