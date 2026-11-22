@@ -1,5 +1,6 @@
 import { SessionSafeguards } from './SessionSafeguards';
 import { FounderStories } from './FounderStories';
+import { dialogueFor, chooseDialogue } from './npcDialogues.mjs';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows } from '@react-three/drei';
@@ -77,6 +78,7 @@ export function WorldPreview() {
   const [paused, setPaused] = useState(true);
   const [dialogue, setDialogue] = useState('');
   const [dialogueNpc, setDialogueNpc] = useState<string | null>(null);
+  const [conversationResult, setConversationResult] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [showJournal, setShowJournal] = useState(false);
@@ -103,7 +105,9 @@ export function WorldPreview() {
     const current = gameRef.current;
     const npc = nearbyNpc(current);
     if (!npc) { setDialogue('Move closer to a neighbor to talk.'); return; }
-    setDialogue(npc.name + ': ' + npc.text);
+    const scene = dialogueFor(npc.id);
+    setDialogue(npc.name + ': ' + (scene?.opening || npc.text));
+    setConversationResult('');
     setDialogueNpc(npc.id);
   }, [dialogueNpc]);
   useEffect(() => {
@@ -120,12 +124,18 @@ export function WorldPreview() {
     if (pad) { dx += Math.abs(pad.axes[0] ?? 0) > 0.18 ? pad.axes[0] : 0; dz += Math.abs(pad.axes[1] ?? 0) > 0.18 ? pad.axes[1] : 0; }
     setGame(s => tick(move(s, dx, dz, dt), dt));
   }, [paused, dialogueNpc, showMap, showJournal, showFounderStories]);
-  const respond = (accept: boolean) => {
-    if (accept && dialogueNpc) setGame(previous => {
-      const talked = talk(previous, dialogueNpc);
-      return dialogueNpc === 'amina' ? deliverPantry(talked) : talked;
+  const respond = (choiceId: string) => {
+    if (!dialogueNpc) return;
+    const choice = chooseDialogue(dialogueNpc, choiceId);
+    const npcId = dialogueNpc;
+    if (choice.effect !== 'none') setGame(previous => {
+      const talked = talk(previous, npcId);
+      if (choice.effect === 'start_pantry' && npcId === 'sara') return talked;
+      if (choice.effect === 'deliver_pantry' && npcId === 'amina') return deliverPantry(talked);
+      return talked;
     });
-    setDialogue(accept ? 'Thanks for helping our neighbors.' : 'No problem. Come back when you're ready.');
+    setDialogue('');
+    setConversationResult(choice.reply);
     setDialogueNpc(null);
   };
   const save = useCallback((): boolean => { try { localStorage.setItem(SAVE_KEY, serializeSave(gameRef.current)); setDialogue('Saved locally on this device.'); return true; } catch { setDialogue('Save failed: storage unavailable.'); return false; } }, []);
@@ -189,10 +199,14 @@ export function WorldPreview() {
         onPointerUp={()=>pressed.current.delete(key)} onPointerCancel={()=>pressed.current.delete(key)}
         aria-label={({'KeyW':'Forward','KeyS':'Backward','KeyA':'Left','KeyD':'Right'} as Record<string,string>)[key]}>{({KeyW:'↑',KeyS:'↓',KeyA:'←',KeyD:'→'} as Record<string,string>)[key]}</button> : <span key={i}/>)}
     </nav>
-    {dialogueNpc && <div role="dialog" aria-label="Neighbor conversation" style={{position:'absolute',bottom:166,left:'50%',transform:'translateX(-50%)',zIndex:4,background:'rgba(10,30,38,.96)',padding:12,borderRadius:10,display:'flex',gap:8}}>
-      <button style={buttonStyle} onClick={() => respond(true)}>Help / Listen</button>
-      <button style={buttonStyle} onClick={() => respond(false)}>Not now</button>
+    {dialogueNpc && <div role="dialog" aria-modal="true" aria-label="Neighbor conversation" style={{position:'absolute',bottom:166,left:'50%',transform:'translateX(-50%)',zIndex:5,background:'rgba(10,30,38,.98)',padding:14,borderRadius:10,display:'grid',gap:8,width:'min(440px,calc(100vw - 24px))'}}>
+      <strong>{NPCS.find(n=>n.id===dialogueNpc)?.name}</strong>
+      <p style={{margin:0}}>{dialogueFor(dialogueNpc)?.opening}</p>
+      {dialogueFor(dialogueNpc)?.choices.map(choice => <button key={choice.id} style={buttonStyle} onClick={() => respond(choice.id)}>{choice.text}</button>)}
     </div>}
+    {conversationResult && !dialogueNpc && <aside role="status" style={{position:'absolute',bottom:166,left:'50%',transform:'translateX(-50%)',zIndex:4,background:'rgba(10,30,38,.96)',padding:12,borderRadius:10,maxWidth:460}}>
+      <p>{conversationResult}</p><button style={buttonStyle} onClick={()=>setConversationResult('')}>Continue</button>
+    </aside>}
     <button style={{...buttonStyle,position:'absolute',bottom:20,right:15,zIndex:3,padding:'15px 22px'}} onClick={interact} disabled={paused}>Talk / Interact (E)</button>
     {paused && <div style={{position:'absolute',inset:0,zIndex:2,background:'rgba(0,0,0,.36)',display:'grid',placeItems:'center',pointerEvents:'none'}}>
       <div style={{background:'rgba(12,31,39,.9)',padding:24,borderRadius:12,textAlign:'center'}}><strong>Paused</strong><p>Choose a character, then press Play.</p><small>Draft community mission; no religious rulings.</small></div>
