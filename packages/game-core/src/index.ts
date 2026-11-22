@@ -35,6 +35,8 @@ export const NPCS = [
   { id: 'sara', name: 'Sara', x: -7, z: 1, text: 'Welcome to Bayhaven. I'm Sara. The neighborhood pantry could use help. Would you like to hear what needs doing?' },
   { id: 'bilal', name: 'Bilal', x: 6, z: 1, text: 'I'm Bilal. The curb near the pantry gets blocked by deliveries. We should find a safer route.' },
   { id: 'amina', name: 'Amina', x: 0, z: -4, text: 'I'm Amina. Thanks for coming. We need a clear count and a safe handoff before distribution.' },
+  { id: 'maya', name: 'Maya', x: -13, z: -1, text: 'A short clip about the pantry is circulating. I want to verify the context.' },
+  { id: 'omar', name: 'Omar', x: 13, z: -1, text: 'My shop has been mentioned in a rumor. Please hear what happened before sharing it.' },
 ] as const;
 export function freshState(persona: Persona = 'Ahmed'): GameState {
   return { ...INITIAL_STATE, persona, position: { x: 0, z: 0 }, inventory: {}, npcSpoken: [] };
@@ -64,6 +66,24 @@ export function deliverPantry(state: GameState): GameState {
   const pantry = NPCS.find(n => n.id === 'amina')!;
   if (state.quest !== 'active' || Math.hypot(state.position.x - pantry.x, state.position.z - pantry.z) > 2.2) return state;
   return { ...state, quest: 'complete', coins: state.coins + 5, inventory: { ...state.inventory, communityThanks: 1 } };
+}
+/** Fictional evidence is local quest data, never real beneficiary information. */
+export type EvidenceAction = 'hear_omar' | 'verify_clip' | 'share_rumor' | 'correct_rumor';
+export function recordEvidence(state: GameState, action: EvidenceAction): GameState {
+  if (state.quest !== 'complete') return state;
+  const key = 'evidence_' + action;
+  if (state.inventory[key]) return state;
+  if (action === 'verify_clip' && !state.inventory.evidence_hear_omar) return state;
+  if (action === 'correct_rumor' && !state.inventory.evidence_share_rumor) return state;
+  return { ...state, inventory: { ...state.inventory, [key]: 1 } };
+}
+export function evidenceStatus(state: GameState): string {
+  if (state.quest !== 'complete') return 'Help Amina with the pantry handoff first.';
+  if (state.inventory.evidence_correct_rumor) return 'You corrected the earlier unverified post. Keep listening to neighbors.';
+  if (state.inventory.evidence_verify_clip) return 'The clip lacks context. Your evidence journal records the source as disputed.';
+  if (state.inventory.evidence_share_rumor) return 'An unverified clip was shared. Ask Omar and Maya about a correction.';
+  if (state.inventory.evidence_hear_omar) return 'You heard Omar. Speak with Maya to verify the clip before publishing.';
+  return 'Speak with Omar and Maya about the cropped video. Avoid publishing private details.';
 }
 export function tick(state: GameState, elapsedSeconds: number): GameState {
   if (!Number.isFinite(elapsedSeconds) || elapsedSeconds <= 0) return state;

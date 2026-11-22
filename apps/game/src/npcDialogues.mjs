@@ -24,6 +24,23 @@ export const DIALOGUES = Object.freeze({
       { id: 'later', text: "I'll think about it.", reply: "Thanks for listening. We can revisit the route later.", effect: 'none' },
     ],
   },
+  maya: {
+    opening: "I'm Maya, a local journalist. A cropped clip is circulating, but it does not show what happened before the camera started.",
+    choices: [
+      { id: 'verify', text: "Let's compare the clip with Omar's account.", reply: "Thank you. The clip lacks context; we can document uncertainty without exposing pantry visitors.", effect: 'verify_clip' },
+      { id: 'share', text: "Post the clip before checking it.", reply: "That may harm people unfairly. If you publish it, be ready to correct it publicly.", effect: 'share_rumor' },
+      { id: 'correct', text: "Correct the earlier unverified post.", reply: "A clear correction should reach the same audience as the original claim.", effect: 'correct_rumor' },
+      { id: 'later', text: "I will return after hearing more.", reply: "Please do. There is no need to rush a public accusation.", effect: 'none' },
+    ],
+  },
+  omar: {
+    opening: "I'm Omar, the grocer. The pantry and my shop serve some of the same neighbors. The video makes it look like we refused someone, but the entrance was blocked.",
+    choices: [
+      { id: 'listen', text: "Tell me what happened before the clip.", reply: "A delivery van blocked the ramp. The person needed an accessible entrance; the clip missed that.", effect: 'hear_omar' },
+      { id: 'supplier', text: "Could your shop help with fair pantry procurement?", reply: "Possibly. We would need transparent prices, safe delivery windows and written terms.", effect: 'hear_omar' },
+      { id: 'later', text: "I'll come back once I've spoken with others.", reply: "That's fair. Please don't treat a rumor as a finding.", effect: 'none' },
+    ],
+  },
 });
 
 export function dialogueFor(npcId) {
