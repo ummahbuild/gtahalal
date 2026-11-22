@@ -68,3 +68,7 @@ The founder-ethics and editorial design is an original adaptation of high-level 
 - Bayhaven now offers a **Pantry planning** overlay with three route options and three supplier arrangements. Route planning requires completed handoff and Bilal conversation; supplier planning requires route selection and Omar's evidence context. Choices are saved as idempotent flags in the v1 inventory. See [Act I](PLAYER_STORY_ACT_ONE.md).
 - These are simplified fictional choices with illustrative trade-off scores, not real route simulation, actual purchasing, accessible map construction or professional safety approval.
 
+
+## Episode 4 continuity — source implemented, unverified
+- **Build Something That Lasts** overlay lets players record one of three fictional institutional governance choices after pantry, route and supplier planning. See [Act I](PLAYER_STORY_ACT_ONE.md) and [Logic Contract](FEATURE_LOGIC_AND_STATE_CONTRACT.md).
+- Still specified only: multi-year cashflow, volunteer availability simulation, audit trails, democratic governance, maintenance reserves and cross-industry unlocks.
