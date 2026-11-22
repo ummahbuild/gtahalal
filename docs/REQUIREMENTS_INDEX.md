@@ -101,3 +101,6 @@ The following are already authored on the transferred [draft implementation bran
 
 ## Act I community continuity
 - [Act I Episode 4](PLAYER_STORY_ACT_ONE.md) — three source-implemented legacy choices with prerequisites and local-save flags; full sustainability simulation remains specified only.
+
+## Multi-role game production audits
+- [Game Studio Audit Playbook](GAME_STUDIO_AUDIT_PLAYBOOK.md) — ten agent role skills, evidence standards, issue templates and current source audit. New issues #80–#83; existing #1/#26, #58/#60/#61 cover reproducibility and graphics.

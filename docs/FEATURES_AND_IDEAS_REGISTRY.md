@@ -72,3 +72,6 @@ The founder-ethics and editorial design is an original adaptation of high-level 
 ## Episode 4 continuity — source implemented, unverified
 - **Build Something That Lasts** overlay lets players record one of three fictional institutional governance choices after pantry, route and supplier planning. See [Act I](PLAYER_STORY_ACT_ONE.md) and [Logic Contract](FEATURE_LOGIC_AND_STATE_CONTRACT.md).
 - Still specified only: multi-year cashflow, volunteer availability simulation, audit trails, democratic governance, maintenance reserves and cross-industry unlocks.
+
+## Game studio audit system — source implemented, execution unverified
+Ten role-specific `.claude/skills/dunya-*/SKILL.md` files and [Game Studio Audit Playbook](GAME_STUDIO_AUDIT_PLAYBOOK.md) provide audit workflows. Source-level findings filed as issues #80 (save sync), #81 (NPC effect consistency), #82 (founder metric integrity), #83 (dialog accessibility). Existing #1/#26 and #58/#60/#61 cover lockfile and visual/mobile work. No automated browser, performance or scholarly review executed as part of this audit.
