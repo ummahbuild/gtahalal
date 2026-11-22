@@ -27,9 +27,25 @@ test('corrupt saves are sanitized and outcomes clamped', () => {
   assert.deepEqual(p.decisions,{});
   assert.equal(p.metrics.trust,0);
   assert.equal(p.metrics.access,0);
-  assert.equal(p.metrics.runway,10);
+  assert.equal(p.metrics.runway,5);
 });
 test('player faith is not a gameplay metric', () => {
   const result = applyDecision(null,STORIES[1].id,'creator-council');
   assert.deepEqual(Object.keys(result.metrics).sort(),['access','runway','trust']);
+});
+
+test('persisted metric tampering cannot change derived results', () => {
+  const first = applyDecision(null, STORIES[0].id, 'redesign');
+  const restored = normalizeProgress({...first, metrics:{trust:10, access:10, runway:10, faith:999}});
+  assert.deepEqual(restored, first);
+});
+test('decision order cannot change derived metrics', () => {
+  const a = applyDecision(applyDecision(null, STORIES[0].id, 'growth'), STORIES[1].id, 'chronological');
+  const b = applyDecision(applyDecision(null, STORIES[1].id, 'chronological'), STORIES[0].id, 'growth');
+  assert.deepEqual(a,b);
+});
+test('malformed and inherited decision IDs are discarded', () => {
+  const decisions = Object.create({[STORIES[0].id]:'growth'});
+  assert.deepEqual(normalizeProgress({version:1,decisions}).decisions,{});
+  assert.deepEqual(normalizeProgress({version:99,decisions:{[STORIES[0].id]:'growth'}}).decisions,{});
 });
