@@ -63,3 +63,8 @@ The founder-ethics and editorial design is an original adaptation of high-level 
 - Maya and Omar are now in Bayhaven with branching NPC dialogue and fictional evidence flags. Journal reports rumor/verification/correction stages. See [NPC Dialogue Logic](BAYHAVEN_NPC_DIALOGUE_LOGIC.md).
 - Still specified only: independent source corroboration, privacy-reviewed evidence UI, accessibility route construction, actual procurement and five-episode Act I completion.
 
+
+## Act I route and procurement planning — source implemented, unverified
+- Bayhaven now offers a **Pantry planning** overlay with three route options and three supplier arrangements. Route planning requires completed handoff and Bilal conversation; supplier planning requires route selection and Omar's evidence context. Choices are saved as idempotent flags in the v1 inventory. See [Act I](PLAYER_STORY_ACT_ONE.md).
+- These are simplified fictional choices with illustrative trade-off scores, not real route simulation, actual purchasing, accessible map construction or professional safety approval.
+

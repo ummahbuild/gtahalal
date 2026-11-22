@@ -94,3 +94,7 @@ The following are already authored on the transferred [draft implementation bran
 ## Cropped-video prototype
 - [NPC dialogue logic](BAYHAVEN_NPC_DIALOGUE_LOGIC.md) — five positioned NPCs, fictional evidence progression and known verification gaps.
 
+
+## Act I route and procurement choices
+- [Act I](PLAYER_STORY_ACT_ONE.md) now has a source-implemented planning overlay with route and supplier decisions, idempotent saved flags and explicit limitations in [Feature Logic](FEATURE_LOGIC_AND_STATE_CONTRACT.md).
+

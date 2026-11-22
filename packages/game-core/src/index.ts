@@ -85,6 +85,39 @@ export function evidenceStatus(state: GameState): string {
   if (state.inventory.evidence_hear_omar) return 'You heard Omar. Speak with Maya to verify the clip before publishing.';
   return 'Speak with Omar and Maya about the cropped video. Avoid publishing private details.';
 }
+/** Original fictional accessibility and fair procurement choices. */
+export type RouteOption = 'loading_window' | 'bike_delivery' | 'shared_delivery';
+export type ProcurementOption = 'local_supplier' | 'competitive_bids' | 'volunteer_stock';
+export const ROUTE_OPTIONS = [
+  { id: 'loading_window', title: 'Request a designated loading window', access: 2, reliability: 2, cost: 2 },
+  { id: 'bike_delivery', title: 'Use small bicycle deliveries', access: 2, reliability: 1, cost: 1 },
+  { id: 'shared_delivery', title: 'Coordinate a shared accessible delivery slot', access: 3, reliability: 2, cost: 2 },
+] as const;
+export const PROCUREMENT_OPTIONS = [
+  { id: 'local_supplier', title: 'Agree transparent terms with Omar', access: 2, reliability: 2, cost: 2 },
+  { id: 'competitive_bids', title: 'Compare two fictional supplier offers', access: 1, reliability: 2, cost: 1 },
+  { id: 'volunteer_stock', title: 'Organize donated stock with safe handling', access: 1, reliability: 1, cost: 0 },
+] as const;
+export function planPantryRoute(state: GameState, option: RouteOption): GameState {
+  if (!ROUTE_OPTIONS.some(o => o.id === option)) return state;
+  if (state.quest !== 'complete' || !state.npcSpoken.includes('bilal')) return state;
+  if (state.inventory.route_planned) return state;
+  return { ...state, inventory: { ...state.inventory, route_planned: 1, ['route_' + option]: 1 } };
+}
+export function planPantryProcurement(state: GameState, option: ProcurementOption): GameState {
+  if (!PROCUREMENT_OPTIONS.some(o => o.id === option)) return state;
+  if (state.quest !== 'complete' || !state.inventory.route_planned || !state.inventory.evidence_hear_omar) return state;
+  if (state.inventory.procurement_planned) return state;
+  return { ...state, inventory: { ...state.inventory, procurement_planned: 1, ['procurement_' + option]: 1 } };
+}
+export function pantryPlanStatus(state: GameState): string {
+  if (state.quest !== 'complete') return 'Complete the pantry handoff with Amina first.';
+  if (!state.npcSpoken.includes('bilal')) return 'Speak with Bilal about the blocked curb ramp.';
+  if (!state.inventory.route_planned) return 'Choose a safe fictional loading route.';
+  if (!state.inventory.evidence_hear_omar) return 'Speak with Omar about supplier needs and the cropped video.';
+  if (!state.inventory.procurement_planned) return 'Choose a transparent fictional supply arrangement.';
+  return 'Route and procurement choices recorded. Review their trade-offs with the neighborhood.';
+}
 export function tick(state: GameState, elapsedSeconds: number): GameState {
   if (!Number.isFinite(elapsedSeconds) || elapsedSeconds <= 0) return state;
   return { ...state, timeMinutes: (state.timeMinutes + Math.min(elapsedSeconds, 1) * 0.25) % 1440 };
