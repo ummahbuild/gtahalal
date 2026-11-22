@@ -1,5 +1,8 @@
 # Dunya — Claude entrypoint
-This public repository is an original, constructive, browser-first 3D Muslim life simulator. This repository has early 3D scaffolding and an explicitly authorized game implementation initiative. Implement gameplay only on focused reviewed branches with real tests; do not merge unverified code or ship unapproved religious instruction. See draft PR #62 and the requirements index.
+This public repository is an original, constructive, browser-first 3D Muslim life simulator. This repository has early 3D scaffolding and an explicitly authorized game implementation initiative. Implement gameplay only on focused reviewed branches with real tests; do not merge unverified code or ship unapproved religious instruction. See the merged PR #62, one-URL onboarding guide and requirements index.
+
+## One URL contributor entrypoint
+Read [docs/AGENT_ONE_URL_START.md](docs/AGENT_ONE_URL_START.md) and run `python3 scripts/agent_bootstrap.py` before making build claims. The missing lockfile is a known blocker. Choose one existing issue and implement a tested improvement.
 
 ## Read in order
 -0. docs/REQUIREMENTS_INDEX.md to identify canonical specs and avoid duplicating the transferred issue backlog.
