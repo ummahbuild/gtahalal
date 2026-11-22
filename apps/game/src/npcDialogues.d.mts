@@ -1,4 +1,4 @@
-export type DialogueChoice = { id: string; text: string; reply: string; effect: 'start_pantry' | 'deliver_pantry' | 'accessibility' | 'none' };
+export type DialogueChoice = { id: string; text: string; reply: string; effect: 'start_pantry' | 'deliver_pantry' | 'accessibility' | 'hear_omar' | 'verify_clip' | 'share_rumor' | 'correct_rumor' | 'none' };
 export type DialogueScene = { opening: string; choices: DialogueChoice[] };
 export const DIALOGUES: Readonly<Record<string, DialogueScene>>;
 export function dialogueFor(npcId: string): DialogueScene | null;
