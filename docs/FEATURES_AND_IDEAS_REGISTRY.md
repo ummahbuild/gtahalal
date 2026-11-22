@@ -78,3 +78,6 @@ Ten role-specific `.claude/skills/dunya-*/SKILL.md` files and [Game Studio Audit
 
 ## Founder progress integrity improvement (#82)
 Source fix: institutional scores now derive exclusively from validated story decisions, not arbitrary stored metric snapshots. This preserves v1 decision saves and prevents inconsistent score displays after reload. Regression tests authored; clean build and browser QA pending.
+
+## Miami community/career mode
+Source implemented, unverified: eight career selections and four-step fictional community khutbah announcement/bulletin logistics minigame; [full requirements](MIAMI_COMMUNITY_CAREER_GAMEPLAY.md). No 3D Miami map, sermon delivery or implemented career progression.

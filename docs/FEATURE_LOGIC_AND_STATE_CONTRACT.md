@@ -87,3 +87,6 @@ Every PR changing story logic updates this file, [Feature Registry](FEATURES_AND
 
 ## Founder metrics integrity fix (#82)
 `normalizeProgress` now discards persisted metrics and deterministically recomputes trust/access/runway from recognized decisions in canonical story order. All effects are summed before final 0–10 clamping; input order does not change results. Old v1 saves remain readable, but tampered or stale metric snapshots are ignored. `applyDecision` normalizes before and after a new choice, and repeated decisions remain idempotent. New Node regression tests cover tampering, order independence and invalid/inherited decisions. Full browser/build verification remains pending.
+
+## Community career and bulletin v1
+`communityCareer.mjs` stores `version:1,career,answers` separately at `dunya-miami-community-v1`. Career IDs are whitelisted. Four bulletin steps are ordered and idempotent; saved answers are sanitized, no attendance/faith data. Completion means logistics exercise completed, **not** a delivered khutbah. Separate local save from Bayhaven; full QA pending. See [Miami mode](MIAMI_COMMUNITY_CAREER_GAMEPLAY.md).

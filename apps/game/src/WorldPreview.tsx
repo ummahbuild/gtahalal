@@ -1,5 +1,6 @@
 import { SessionSafeguards } from './SessionSafeguards';
 import { FounderStories } from './FounderStories';
+import { CommunityCareer } from './CommunityCareer';
 import { dialogueFor, chooseDialogue } from './npcDialogues.mjs';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
@@ -85,6 +86,7 @@ export function WorldPreview() {
   const [showPantryPlan, setShowPantryPlan] = useState(false);
   const [showLegacy, setShowLegacy] = useState(false);
   const [showFounderStories, setShowFounderStories] = useState(false);
+  const [showCommunity, setShowCommunity] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const pressed = useRef(new Set<string>());
   const gameRef = useRef(game);
@@ -118,14 +120,14 @@ export function WorldPreview() {
     return () => window.removeEventListener('keydown', onKey);
   }, [interact, paused]);
   const onTick = useCallback((dt: number) => {
-    if (paused || dialogueNpc || showMap || showJournal || showFounderStories || showPantryPlan || showLegacy) return;
+    if (paused || dialogueNpc || showMap || showJournal || showFounderStories || showPantryPlan || showLegacy || showCommunity) return;
     const keys = pressed.current;
     let dx = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'));
     let dz = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'));
     const pad = navigator.getGamepads?.()[0];
     if (pad) { dx += Math.abs(pad.axes[0] ?? 0) > 0.18 ? pad.axes[0] : 0; dz += Math.abs(pad.axes[1] ?? 0) > 0.18 ? pad.axes[1] : 0; }
     setGame(s => tick(move(s, dx, dz, dt), dt));
-  }, [paused, dialogueNpc, showMap, showJournal, showFounderStories, showPantryPlan, showLegacy]);
+  }, [paused, dialogueNpc, showMap, showJournal, showFounderStories, showPantryPlan, showLegacy, showCommunity]);
   const respond = (choiceId: string) => {
     if (!dialogueNpc) return;
     const choice = chooseDialogue(dialogueNpc, choiceId);
@@ -171,11 +173,13 @@ export function WorldPreview() {
         <button style={buttonStyle} onClick={() => { pressed.current.clear(); setPaused(true); setShowPantryPlan(true); }} aria-expanded={showPantryPlan}>Pantry planning</button>
         <button style={buttonStyle} onClick={() => { pressed.current.clear(); setPaused(true); setShowLegacy(true); }} aria-expanded={showLegacy}>Build something lasting</button>
         <button style={buttonStyle} onClick={() => { pressed.current.clear(); setPaused(true); setShowFounderStories(true); }} aria-expanded={showFounderStories}>Founder stories</button>
+        <button style={buttonStyle} onClick={() => { pressed.current.clear(); setPaused(true); setShowCommunity(true); }} aria-expanded={showCommunity}>Miami community & careers</button>
         <button style={buttonStyle} onClick={() => setReducedMotion(v => !v)} aria-pressed={reducedMotion}>Reduced motion: {reducedMotion ? 'On' : 'Off'}</button>
       </div>
       <SessionSafeguards onPause={pauseForRealLife} onSave={save} onResume={resumeAfterBreak} onLeave={leaveAfterSave} />
       <p style={{ fontSize:12, margin:'8px 0 0' }}>{PANTRY_MISSION.chapter} · {game.quest==='available'?'Meet Sara at Harbor Plaza':game.quest==='active'?'Find Amina and confirm the pantry handoff':'Pantry handoff complete — thank you!'}</p>
     </header>
+    {showCommunity && <CommunityCareer onClose={() => setShowCommunity(false)} />}
     {showLegacy && <section role="dialog" aria-modal="true" aria-label="Pantry long-term governance" style={{position:'absolute',inset:0,zIndex:15,overflowY:'auto',background:'rgba(10,25,32,.98)',padding:18,color:'#fff'}}>
       <div style={{maxWidth:650,margin:'0 auto',display:'grid',gap:12}}>
         <h2>Build Something That Lasts</h2>
