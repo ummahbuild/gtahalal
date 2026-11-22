@@ -12,6 +12,10 @@ Status: index of existing source documents and draft PR work; documentation is n
 - [Corporate parody bible](INDUSTRY_PARODY_CAMPAIGN_BIBLE.md) — eleven original fictional corporate verticals; not real-world allegations.
 - [Ummah/build and founder-book learning bridge](HUMANITARIAN_WORLD_CRISIS_CAMPAIGN.md#source-led-educational-lms-modes) — source-aware learning themes; no manuscript rights transferred.
 
+## Founder-perspective narrative expansion
+- [Industry story audit](FOUNDER_PERSPECTIVE_INDUSTRY_STORY_AUDIT.md) — fifteen distinct founder dilemmas, narrative quality rubric, repair paths and issue traceability.
+- [Draft machine-readable briefs](../content/founder_perspective_story_briefs.json) and [validator](../scripts/validate_founder_story_briefs.py) — not playable or approved.
+
 ## Transfer and authoring
 - [Transfer audit](TRANSFER_GITHUB_AUDIT_2026-11-21.md) — which files and changes actually live on main versus draft PR #62.
 - [Narrative scene standard](NARRATIVE_SCENE_STANDARD.md) — machine-readable scene requirements and original dialogue authoring.
