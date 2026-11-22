@@ -1,6 +1,7 @@
 import { SessionSafeguards } from './SessionSafeguards';
 import { FounderStories } from './FounderStories';
 import { CommunityCareer } from './CommunityCareer';
+import { GameDialog } from './GameDialog';
 import { dialogueFor, chooseDialogue } from './npcDialogues.mjs';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
@@ -111,7 +112,7 @@ export function WorldPreview() {
     return () => { window.removeEventListener('keydown', down); window.removeEventListener('keyup', up); window.removeEventListener('blur', blur); };
   }, []);
   const interact = useCallback(() => {
-    if (dialogueNpc) return;
+    if (dialogueNpc || showFounderStories || showCommunity || showPantryPlan || showLegacy || showMap || showJournal) return;
     const current = gameRef.current;
     const npc = nearbyNpc(current);
     if (!npc) { setDialogue('Move closer to a neighbor to talk.'); return; }
@@ -119,12 +120,12 @@ export function WorldPreview() {
     setDialogue(npc.name + ': ' + (scene?.opening || npc.text));
     setConversationResult('');
     setDialogueNpc(npc.id);
-  }, [dialogueNpc]);
+  }, [dialogueNpc, showFounderStories, showCommunity, showPantryPlan, showLegacy, showMap, showJournal]);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.code === 'KeyE' && !e.repeat && !paused) interact(); };
+    const onKey = (e: KeyboardEvent) => { if (e.code === 'KeyE' && !e.repeat && !paused && !dialogueNpc && !showFounderStories && !showCommunity && !showPantryPlan && !showLegacy && !showMap && !showJournal) interact(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [interact, paused]);
+  }, [interact, paused, dialogueNpc, showFounderStories, showCommunity, showPantryPlan, showLegacy, showMap, showJournal]);
   const onTick = useCallback((dt: number) => {
     if (paused || dialogueNpc || showMap || showJournal || showFounderStories || showPantryPlan || showLegacy || showCommunity) return;
     const keys = pressed.current;
@@ -180,7 +181,7 @@ export function WorldPreview() {
       <p style={{ fontSize:12, margin:'8px 0 0' }}>{PANTRY_MISSION.chapter} · {game.quest==='available'?'Meet Sara at Harbor Plaza':game.quest==='active'?'Find Amina and confirm the pantry handoff':'Pantry handoff complete — thank you!'}</p>
     </header>
     {showCommunity && <CommunityCareer onClose={() => setShowCommunity(false)} />}
-    {showLegacy && <section role="dialog" aria-modal="true" aria-label="Pantry long-term governance" style={{position:'absolute',inset:0,zIndex:15,overflowY:'auto',background:'rgba(10,25,32,.98)',padding:18,color:'#fff'}}>
+    {showLegacy && <GameDialog onClose={() => setShowLegacy(false)} label="Pantry long-term governance" style={{position:'absolute',inset:0,zIndex:15,overflowY:'auto',background:'rgba(10,25,32,.98)',padding:18,color:'#fff'}}>
       <div style={{maxWidth:650,margin:'0 auto',display:'grid',gap:12}}>
         <h2>Build Something That Lasts</h2>
         <p>Sara: One good day helped. What happens next week when we are all busy?</p>
@@ -189,9 +190,9 @@ export function WorldPreview() {
         <p style={{fontSize:12}}>Fictional institutional planning. Ratings are illustrative; there are no real funds, contracts, or religious judgments.</p>
         <button style={buttonStyle} onClick={()=>setShowLegacy(false)}>Return to Bayhaven</button>
       </div>
-    </section>}
+    </GameDialog>}
     {showFounderStories && <FounderStories onClose={() => setShowFounderStories(false)} />}
-    {showPantryPlan && <section role="dialog" aria-modal="true" aria-label="Pantry route and supplier planning" style={{position:'absolute',inset:0,zIndex:14,overflowY:'auto',background:'rgba(10,25,32,.98)',padding:18,color:'#fff'}}>
+    {showPantryPlan && <GameDialog onClose={() => setShowPantryPlan(false)} label="Pantry route and supplier planning" style={{position:'absolute',inset:0,zIndex:14,overflowY:'auto',background:'rgba(10,25,32,.98)',padding:18,color:'#fff'}}>
       <div style={{maxWidth:650,margin:'0 auto',display:'grid',gap:12}}>
         <h2>Pantry · The Curb and the Contract</h2>
         <p>{pantryPlanStatus(game)}</p>
@@ -202,7 +203,7 @@ export function WorldPreview() {
         <p style={{fontSize:12}}>Fictional educational choices only. These scores illustrate trade-offs, not real engineering, procurement or safety approval.</p>
         <button style={buttonStyle} onClick={() => setShowPantryPlan(false)}>Return to Bayhaven</button>
       </div>
-    </section>}
+    </GameDialog>}
     <Canvas shadows={quality==='high'} dpr={quality==='high'?[1,1.75]:[1,1.25]} camera={{ position:[6,5,8], fov:55 }} gl={{ antialias:quality==='high', powerPreference:'high-performance' }}>
       <NeighborhoodScene game={game} quality={quality} reducedMotion={reducedMotion} onTick={onTick} />
     </Canvas>
@@ -238,11 +239,11 @@ export function WorldPreview() {
         onPointerUp={()=>pressed.current.delete(key)} onPointerCancel={()=>pressed.current.delete(key)}
         aria-label={({'KeyW':'Forward','KeyS':'Backward','KeyA':'Left','KeyD':'Right'} as Record<string,string>)[key]}>{({KeyW:'↑',KeyS:'↓',KeyA:'←',KeyD:'→'} as Record<string,string>)[key]}</button> : <span key={i}/>)}
     </nav>
-    {dialogueNpc && <div role="dialog" aria-modal="true" aria-label="Neighbor conversation" style={{position:'absolute',bottom:166,left:'50%',transform:'translateX(-50%)',zIndex:5,background:'rgba(10,30,38,.98)',padding:14,borderRadius:10,display:'grid',gap:8,width:'min(440px,calc(100vw - 24px))'}}>
+    {dialogueNpc && <GameDialog onClose={() => setDialogueNpc(null)} label="Neighbor conversation" style={{position:'absolute',bottom:166,left:'50%',transform:'translateX(-50%)',zIndex:5,background:'rgba(10,30,38,.98)',padding:14,borderRadius:10,display:'grid',gap:8,width:'min(440px,calc(100vw - 24px))'}}>
       <strong>{NPCS.find(n=>n.id===dialogueNpc)?.name}</strong>
       <p style={{margin:0}}>{dialogueFor(dialogueNpc)?.opening}</p>
       {dialogueFor(dialogueNpc)?.choices.map(choice => <button key={choice.id} style={buttonStyle} onClick={() => respond(choice.id)}>{choice.text}</button>)}
-    </div>}
+    </GameDialog>}
     {conversationResult && !dialogueNpc && <aside role="status" style={{position:'absolute',bottom:166,left:'50%',transform:'translateX(-50%)',zIndex:4,background:'rgba(10,30,38,.96)',padding:12,borderRadius:10,maxWidth:460}}>
       <p>{conversationResult}</p><button style={buttonStyle} onClick={()=>setConversationResult('')}>Continue</button>
     </aside>}
