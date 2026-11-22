@@ -93,3 +93,6 @@ Every PR changing story logic updates this file, [Feature Registry](FEATURES_AND
 
 ## Dialogue transition consistency (#81)
 `applyDialogueEffect` now checks NPC proximity, valid NPC/effect combinations, quest prerequisites, evidence dependencies and repeated actions in one game-core function returning `{state,applied,reason}`. `WorldPreview.respond` uses that same result for the state update and the displayed message, synchronizing `gameRef` for the accepted dialogue transition. No duplicate UI-only evidence prerequisites. Automated source-contract tests authored; full game/browser verification remains pending.
+
+## Immediate save synchronization (#80)
+`WorldPreview` now routes game-state mutations through `commitGame`, which updates `gameRef.current` before scheduling React state. Save/autosave serialize that same ref, including immediately after NPC, route, procurement and legacy decisions. The change also covers persona reset, Load and movement ticks. Source-contract tests added; browser/save-reload and clean build still need verification. Separate founder and Miami minigame localStorage keys remain independent by design.
