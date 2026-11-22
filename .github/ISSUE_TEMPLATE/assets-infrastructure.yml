@@ -1,0 +1,30 @@
+name: "3D asset or infrastructure simulation"
+description: "Contribute original visual assets, engineering models or city-building mechanics."
+title: "[Asset/engineering] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Target city pack / building / simulation
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Player interaction, inputs, outputs and constraints
+    validations:
+      required: true
+  - type: textarea
+    id: provenance
+    attributes:
+      label: Original asset license / source data / professional review needs
+      description: "No unlicensed brands, real sacred interiors or professional safety certifications."
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Performance, accessibility and validation tests
+    validations:
+      required: true

@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security vulnerability (private)
-    url: https://github.com/codingshot/gtahalal/security/advisories/new
-    about: Please report exploitable vulnerabilities privately, not in a public issue.
+    url: https://github.com/ummahbuild/gtahalal/security/advisories/new
+    about: Privately report exploitable vulnerabilities; do not expose secrets in issues.
   - name: Contributor onboarding
-    url: https://github.com/codingshot/gtahalal/blob/main/docs/START_HERE.md
-    about: Read the role-specific entrypoints and contribution requirements.
+    url: https://github.com/ummahbuild/gtahalal/blob/main/CONTRIBUTING.md
+    about: Choose a contribution workflow and read the review requirements.

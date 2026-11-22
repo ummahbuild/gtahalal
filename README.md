@@ -6,6 +6,10 @@
 > **Development status (2026-11-22):** PRs [#62](https://github.com/ummahbuild/gtahalal/pull/62), [#65](https://github.com/ummahbuild/gtahalal/pull/65), [#66](https://github.com/ummahbuild/gtahalal/pull/66), and [#67](https://github.com/ummahbuild/gtahalal/pull/67) were merged to `main` at the owner's explicit request **without verified build or browser tests**. This is source deployment to the production branch, **not proof of a working live release**. `pnpm-lock.yaml` remains missing; clean install, CI, asset and religious review remain outstanding.
 
 
+## Contribute to Dunya
+
+Developers, storytellers, Qur'an/Sunnah researchers, qualified Islamic reviewers, regional experts, accessibility contributors, artists and engineers can contribute using the [Contributor Guide](CONTRIBUTING.md) and [GitHub issue forms](.github/ISSUE_TEMPLATE/config.yml). Corrections to Islamic claims do **not** require coding. All religious interpretations remain draft until qualified review; no gameplay piety scoring or automated fatwas.
+
 ## Mission audit and issue traceability
 
 **Canonical mission inventory:** [Mission Audit and Issue Map (2026-11-22)](docs/MISSION_AUDIT_AND_ISSUE_MAP_2026-11-22.md). This maps Bayhaven Act I, the eleven-industry campaign, everyday worship and minigames, generations, community safety, city travel, Hadith Library and mosque stewardship to existing GitHub issues, and distinguishes implemented, documented, review-blocked and draft-PR-only work.

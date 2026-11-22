@@ -1,0 +1,31 @@
+name: "Gameplay code or bug"
+description: "Report a reproducible gameplay defect or propose an implementable feature."
+title: "[Gameplay] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: component
+    attributes:
+      label: App / package / mission
+      placeholder: "apps/game/... or packages/game-core/..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected player behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior / steps to reproduce / proposed interaction
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test cases, environment and acceptance criteria
+      description: "Include mobile/keyboard, save/load and accessibility."
+    validations:
+      required: true

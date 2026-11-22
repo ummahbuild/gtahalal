@@ -1,0 +1,31 @@
+name: "Humanitarian / regional accuracy review"
+description: "Propose sourced, dignified corrections to regional stories or crisis educational cards."
+title: "[Regional review] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: mission
+    attributes:
+      label: Region / mission / file
+    validations:
+      required: true
+  - type: textarea
+    id: concern
+    attributes:
+      label: Concern, affected people and risk
+      description: "Do not submit identifiable survivor testimony or operational conflict details."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Dated primary sources, counterevidence and uncertainties
+      description: "Separate verified events, allegations and legal findings."
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction and local review needed
+    validations:
+      required: true
