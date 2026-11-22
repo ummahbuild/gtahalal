@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "release_enabled": false,
+  "source_approval": false,
+  "origin": "original fictional Dunya mission briefs inspired by reviewed founder-ethics frameworks",
+  "missions": [
+    {
+      "id": "founder-attention-01",
+      "vertical": "attention",
+      "title": "The Retention Board",
+      "goal": "creator welfare",
+      "mechanic": "ranking-policy simulation",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-media-01",
+      "vertical": "media",
+      "title": "The Correction That Costs",
+      "goal": "correction visibility",
+      "mechanic": "evidence chain",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-food-01",
+      "vertical": "food",
+      "title": "The Certified Shelf",
+      "goal": "supplier welfare",
+      "mechanic": "lot trace",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-finance-01",
+      "vertical": "finance",
+      "title": "The Customer Who Gets Better",
+      "goal": "borrower resilience",
+      "mechanic": "cohort stress test",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-privacy-01",
+      "vertical": "privacy",
+      "title": "Consent Is Not a Button",
+      "goal": "data autonomy",
+      "mechanic": "permission audit",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-trade-01",
+      "vertical": "trade",
+      "title": "The Cheapest Supplier",
+      "goal": "worker rights",
+      "mechanic": "bid comparison",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-housing-01",
+      "vertical": "housing",
+      "title": "The Accessible Unit",
+      "goal": "accessible housing",
+      "mechanic": "lifecycle costs",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-education-01",
+      "vertical": "education",
+      "title": "The Free Classroom",
+      "goal": "teacher autonomy",
+      "mechanic": "portable LMS",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-health-01",
+      "vertical": "health",
+      "title": "The Patient Is Not a Segment",
+      "goal": "patient safety",
+      "mechanic": "consent and referral",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-civic-01",
+      "vertical": "civic",
+      "title": "The Hearing No One Can Attend",
+      "goal": "public participation",
+      "mechanic": "hearing planner",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-resilience-01",
+      "vertical": "resilience",
+      "title": "The Founder Steps Away",
+      "goal": "succession",
+      "mechanic": "year-five stress test",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-environment-01",
+      "vertical": "environment",
+      "title": "The Offset That Cannot Fix the Pipe",
+      "goal": "water stewardship",
+      "mechanic": "water graph",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-gambling-harm-01",
+      "vertical": "gambling-harm",
+      "title": "The Ad-Free Match",
+      "goal": "youth protection",
+      "mechanic": "non-wagering program",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-night-economy-01",
+      "vertical": "night-economy",
+      "title": "A Different Night",
+      "goal": "safe mobility",
+      "mechanic": "district planner",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    },
+    {
+      "id": "founder-humanitarian-01",
+      "vertical": "humanitarian",
+      "title": "The Empty Pledge",
+      "goal": "civilian dignity",
+      "mechanic": "aid ledger",
+      "version": 1,
+      "status": "draft",
+      "playable": false,
+      "choices_required": 3,
+      "repair_path_required": true,
+      "real_world_action_optional": true,
+      "faith_score": false,
+      "source_claims": [],
+      "review": {
+        "editorial": "pending",
+        "religious": "pending_if_applicable",
+        "legal": "pending_if_applicable",
+        "local": "pending_if_applicable"
+      },
+      "issue_numbers": [
+        3,
+        36,
+        38,
+        39,
+        49,
+        53
+      ]
+    }
+  ]
+}
