@@ -1,3 +1,4 @@
+import {useDialogFocus} from './useDialogFocus';
 import React, { useEffect, useState } from 'react';
 import { STORIES, INITIAL_METRICS, applyDecision, normalizeProgress } from './founderStories.mjs';
 
@@ -9,6 +10,7 @@ function load(): Progress {
   catch { return normalizeProgress(null) as Progress; }
 }
 export function FounderStories({ onClose }: { onClose: () => void }) {
+  const dialogRef=useDialogFocus(onClose);
   const [progress, setProgress] = useState<Progress>(() => normalizeProgress(null) as Progress);
   const [active, setActive] = useState(STORIES[0].id);
   const [notice, setNotice] = useState('');
@@ -23,7 +25,7 @@ export function FounderStories({ onClose }: { onClose: () => void }) {
       setNotice('Your fictional decision was saved locally.');
     } catch { setNotice('Storage unavailable. No decision was saved.'); }
   }
-  return <section aria-label="Founder story missions" role="dialog" aria-modal="true"
+  return <section ref={dialogRef} tabIndex={-1} aria-label="Founder story missions" role="dialog" aria-modal="true"
     style={{position:'absolute',inset:0,zIndex:15,background:'rgba(10,25,32,.98)',padding:18,overflowY:'auto',color:'#fff'}}>
     <div style={{maxWidth:760,margin:'0 auto',display:'grid',gap:14}}>
       <header style={{display:'flex',justifyContent:'space-between',gap:10,alignItems:'center'}}>

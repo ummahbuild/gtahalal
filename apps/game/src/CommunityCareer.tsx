@@ -1,9 +1,11 @@
+import {useDialogFocus} from './useDialogFocus';
 import React, {useEffect,useState} from 'react';
 import {CAREERS,BULLETIN_STEPS,normalizeCommunity,chooseCareer,answerBulletin,bulletinResult} from './communityCareer.mjs';
 const KEY='dunya-miami-community-v1';
 const button:React.CSSProperties={padding:'10px 12px',background:'#244854',color:'white',border:'1px solid #9eb7b8',borderRadius:8,cursor:'pointer',textAlign:'left'};
 type State={version:1;career:string|null;answers:Record<string,string>};
 export function CommunityCareer({onClose}:{onClose:()=>void}) {
+  const dialogRef=useDialogFocus(onClose);
   const [state,setState]=useState<State>(()=>normalizeCommunity(null));
   const [notice,setNotice]=useState('');
   useEffect(()=>{try{setState(normalizeCommunity(JSON.parse(localStorage.getItem(KEY)||'null')))}catch{setState(normalizeCommunity(null))}},[]);
@@ -14,7 +16,7 @@ export function CommunityCareer({onClose}:{onClose:()=>void}) {
     try {localStorage.setItem(KEY,JSON.stringify(nextState));setState(nextState);setNotice('Saved locally on this device.')}
     catch {setNotice('Local storage unavailable; no choice was saved.')}
   }
-  return <section role="dialog" aria-modal="true" aria-label="Miami community and careers" style={{position:'absolute',inset:0,zIndex:16,overflowY:'auto',background:'rgba(9,27,34,.98)',color:'white',padding:20}}>
+  return <section ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-label="Miami community and careers" style={{position:'absolute',inset:0,zIndex:16,overflowY:'auto',background:'rgba(9,27,34,.98)',color:'white',padding:20}}>
     <div style={{maxWidth:720,margin:'0 auto',display:'grid',gap:12}}>
       <header><h2>Miami-inspired community stories</h2><p>Fictional city prototype · choose a career and help prepare an accessible community bulletin. No religious instruction is delivered or worship tracked.</p></header>
       <h3>Choose a career path</h3>
