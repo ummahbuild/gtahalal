@@ -4,6 +4,14 @@ Status: index of existing source documents and draft PR work; documentation is n
 ## Canonical mission audit
 - [Mission audit and issue map](MISSION_AUDIT_AND_ISSUE_MAP_2026-11-22.md) — chapter/arc coverage, issue traceability, unmerged PR boundaries and release blockers. All mission authors should consult this before creating duplicate requirements or issues.
 
+## Humanitarian and additional industry campaigns (merged design, not playable)
+- [Humanitarian World Campaign](HUMANITARIAN_WORLD_CRISIS_CAMPAIGN.md) — 45 draft regional and rights-accountability missions; issues #3 #5 #9 #21 #27 #32 #35 #36 #38 #39 #49 #53.
+- [The Empty Pledge](HUMANITARIAN_EMPTY_PLEDGE_VERTICAL_SLICE.md) — source-evidence ledger, civilian infrastructure and locally led aid-accountability vertical slice.
+- [Debt Empire](DEBT_EMPIRE_RIBA_CAMPAIGN.md) — 25 draft ethical-finance missions; issues #14 #36 #38 #39 #49 #53.
+- [Environment, Gambling Harm and Night Economy](ENVIRONMENT_GAMBLING_ALCOHOL_CAMPAIGN.md) — 15 draft missions; issues #14 #21 #36 #38 #39.
+- [Corporate parody bible](INDUSTRY_PARODY_CAMPAIGN_BIBLE.md) — eleven original fictional corporate verticals; not real-world allegations.
+- [Ummah/build and founder-book learning bridge](HUMANITARIAN_WORLD_CRISIS_CAMPAIGN.md#source-led-educational-lms-modes) — source-aware learning themes; no manuscript rights transferred.
+
 ## Transfer and authoring
 - [Transfer audit](TRANSFER_GITHUB_AUDIT_2026-11-21.md) — which files and changes actually live on main versus draft PR #62.
 - [Narrative scene standard](NARRATIVE_SCENE_STANDARD.md) — machine-readable scene requirements and original dialogue authoring.
