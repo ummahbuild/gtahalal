@@ -12,6 +12,12 @@
 
 **Now merged, not yet verified as playable:** [Act I in PR #62](https://github.com/ummahbuild/gtahalal/pull/62), [Hadith Library / Mosque Building in PR #65](https://github.com/ummahbuild/gtahalal/pull/65), [Industry Parody in PR #66](https://github.com/ummahbuild/gtahalal/pull/66), and [Real World First in PR #67](https://github.com/ummahbuild/gtahalal/pull/67). No religious teaching or construction guidance is approved by this merge.
 
+## Expanded humanitarian and institutional campaigns (design status)
+
+The [Humanitarian World Campaign](docs/HUMANITARIAN_WORLD_CRISIS_CAMPAIGN.md) documents eight fictional region-inspired packs (Sudan, Gaza/OPT, Yemen, Afghanistan, Rohingya/Myanmar/Bangladesh, Somalia/Horn, Sahel and Syria/host communities), plus a fictional government-rights accountability mode: **45 draft missions**. The [Empty Pledge vertical slice](docs/HUMANITARIAN_EMPTY_PLEDGE_VERTICAL_SLICE.md) specifies evidence-led aid-accounting gameplay, local leadership, infrastructure maintenance and a correction path. No live crisis information, real donation handling or safety guidance is implemented.
+
+The [Debt Empire](docs/DEBT_EMPIRE_RIBA_CAMPAIGN.md) adds **25 draft financial ethics missions**; the [Environment, Gambling Harm and Night Economy](docs/ENVIRONMENT_GAMBLING_ALCOHOL_CAMPAIGN.md) adds **15 draft missions**. All require specialist content review, implementation and testing. These stories are fictional, not allegations against real companies or governments, and no religious interpretation is automatically approved.
+
 ## The story: A world worth building
 
 Choose **Ahmed** or **Fatimah** and begin in *Bayhaven*, a fictional coastal neighborhood. A community pantry needs support, neighbors disagree about limited resources, an online video tells only part of the story, and a blocked entrance exposes a real accessibility problem. Help Sara, Amina, Bilal, Maya, and Omar uncover what is happening, correct mistakes, organize fair deliveries, and leave a system that works without constant intervention.
