@@ -104,3 +104,6 @@ The following are already authored on the transferred [draft implementation bran
 
 ## Multi-role game production audits
 - [Game Studio Audit Playbook](GAME_STUDIO_AUDIT_PLAYBOOK.md) — ten agent role skills, evidence standards, issue templates and current source audit. New issues #80–#83; existing #1/#26, #58/#60/#61 cover reproducibility and graphics.
+
+## Miami community and career minigame
+- [Miami-inspired community mode](MIAMI_COMMUNITY_CAREER_GAMEPLAY.md) — source-implemented career chooser and bulletin planning exercise; broader city/career arcs specified only.
