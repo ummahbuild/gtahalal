@@ -81,3 +81,6 @@ Source fix: institutional scores now derive exclusively from validated story dec
 
 ## Miami community/career mode
 Source implemented, unverified: eight career selections and four-step fictional community khutbah announcement/bulletin logistics minigame; [full requirements](MIAMI_COMMUNITY_CAREER_GAMEPLAY.md). No 3D Miami map, sermon delivery or implemented career progression.
+
+## Dialogue transition consistency (#81)
+`applyDialogueEffect` now checks NPC proximity, valid NPC/effect combinations, quest prerequisites, evidence dependencies and repeated actions in one game-core function returning `{state,applied,reason}`. `WorldPreview.respond` uses that same result for the state update and the displayed message, synchronizing `gameRef` for the accepted dialogue transition. No duplicate UI-only evidence prerequisites. Automated source-contract tests authored; full game/browser verification remains pending.
