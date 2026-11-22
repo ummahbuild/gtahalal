@@ -90,3 +90,7 @@ The following are already authored on the transferred [draft implementation bran
 ## Activity concept art
 
 [Five activity mockups and visual acceptance criteria](art/activities/README.md)
+
+## Cropped-video prototype
+- [NPC dialogue logic](BAYHAVEN_NPC_DIALOGUE_LOGIC.md) — five positioned NPCs, fictional evidence progression and known verification gaps.
+
